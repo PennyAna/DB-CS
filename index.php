@@ -8,7 +8,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./style.css" type="text/css">
-	<script src="../js/wk2.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -29,26 +28,18 @@
 						}						?>
 					</div>
 					<br>
-				<img src="../images/animeMe.jpg" alt="Girl with Glasses" class="img-thumbnail float-middle">
+				<img src="./images/animeMe.jpg" alt="Girl with Glasses" class="img-thumbnail float-middle">
 				<h3>The Girl with Glasses</h3>
 				<ul class="nav nav-pills nav-stacked">
-					<li  class="active"><a href="./index.html">Home</a></li>
-					<!--<li><a href="./php/assignments.php">Assignments</a></li>-->
+					<li  class="active"><a href="./index.php">Home</a></li>
+					<li><a href="./assignments.php">Assignments</a></li>
 					<!-- --<li><a href="../html/teamteach.html">Team Activities</a></li> -->
 					</ul><br>
 					<br>		
 			</div>
 			<div class="col-sm-9">
 				<h4><small>WDD 330 Portfolio</small></h4>
-				<hr>
-				<div id="innerpage">
-                    Fall 2020
-                    <ol>
-                        <li><a href="week1/">Week01</a></li>
-                        <li><a href="week2/">Week02</a></li>
-                        <li><a href="week3/">Week03</a></li>
-                    </ol>
-                </div>
+				<img src="./images/python_code.jpg" alt="But it does run." class="img-thumbnail float-middle">
 			</div>
 		</div>
 	</div>
