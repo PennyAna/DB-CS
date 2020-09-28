@@ -77,7 +77,7 @@ h3 {
 	max-width: 75%;
 }
 .img-thumbnail {
-	max-width: 80%;
+	max-width: 50%;
 	height: auto;
 	/* padding: 20px; */
 	margin: 0px;
