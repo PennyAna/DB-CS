@@ -15,33 +15,9 @@ html {
 #container {
 
 }
-#content {
-	height: 1500px;
-	/* margin: 20px; */
-}
-#sidenav {
-	background-color: var(--color-dark);
-	height: 100%;
-	width: 20%;
-	color: var(--color-light);
-	font-size: 20px;
-	/* padding: 20px; */
-	/* margin: 20px; */
-}
 
 #nav-elements {
 
-}
-
-@media screen and (max-width: 767px) {
-	.sidenav {
-		height: auto;
-		padding: 15px;
-	}
-	.content {
-		height: auto;
-		width: auto;
-	}
 }
 
 body {
