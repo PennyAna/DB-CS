@@ -12,11 +12,14 @@ html {
 	min-height: 100%;
 }
 
-.row.content {
+#container {
+
+}
+#content {
 	height: 1500px;
 	/* margin: 20px; */
 }
-.sidenav {
+#sidenav {
 	background-color: var(--color-dark);
 	height: 100%;
 	width: 20%;
@@ -26,12 +29,16 @@ html {
 	/* margin: 20px; */
 }
 
+#nav-elements {
+
+}
+
 @media screen and (max-width: 767px) {
 	.sidenav {
 		height: auto;
 		padding: 15px;
 	}
-	.row.content {
+	.content {
 		height: auto;
 		width: auto;
 	}
@@ -42,9 +49,6 @@ body {
 	color: var(--color-dark-alt);
 	font-family: Bookman;
 	margin-bottom: 30px;
-}
-#google_translate_element {
-	float: right;
 }
 
 hr {
@@ -61,22 +65,16 @@ h4 {
 	font-weight: bold;
 	font-size: 50px;
 }
-#phpMe {
-	background-color: #CB9CF2;
-	color: var(--color-dark);
-	border-radius: 20px;
-	text-align: center;
-	font-size: 18px;
-}
+
 h3 {
 	vertical-align: middle;
 }
-.col-sm-9 {
+#main {
 	font-size: 18px;
 	text-align: left;
 	max-width: 75%;
 }
-.img-thumbnail {
+#img-thumbnail {
 	max-width: 50%;
 	height: auto;
 	/* padding: 20px; */
@@ -87,7 +85,7 @@ h3 {
 	border-radius: 8px;
 	text-align: center;
 }
-.footer {
+footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -96,6 +94,7 @@ h3 {
 	color: #CB9CF2;
 	text-align: center;
 }
+
 #innerpage {
 	margin: 20px;
 	background-color:#f8f8f8;
@@ -103,10 +102,7 @@ h3 {
 	border-radius: 8px;
 	max-height: fit-content;
 }
-#delly {
-	max-width: 60%;
-	height: auto;
-}
+
 #assigns {
 	float: left;
 	margin-right: 150px;
