@@ -12,13 +12,13 @@ html {
 	min-height: 100%;
 }
 
-#container {
+/* #container {
 
 }
 
 #nav-elements {
 
-}
+} */
 
 body {
 	background-color: var(--color-light);
