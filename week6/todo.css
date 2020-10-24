@@ -7,7 +7,7 @@ header {
 #container {
     width: 500px; 
     height: auto;
-    border: 5px green solid;
+    border: 5px red solid;
     align-content: center;
     margin: 20px;
     padding: 20px;
