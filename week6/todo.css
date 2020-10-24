@@ -9,6 +9,7 @@ header {
     height: auto;
     border: 5px green solid;
     align-content: center;
+    text-align: center;
 }
 #todoname {
 
@@ -38,7 +39,7 @@ header {
     float: left;
 }
 #newtask {
-
+    float: right;
 }	
 #savenew {
     float: right;
