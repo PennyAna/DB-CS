@@ -8,6 +8,7 @@ header {
     width: 75%; 
     height: auto;
     border: 5px green solid;
+    align-content: center;
 }
 #todoname {
 
