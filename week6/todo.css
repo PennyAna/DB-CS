@@ -5,11 +5,12 @@ header {
 
 }
 #container {
-    width: 50%; 
+    width: 500px; 
     height: auto;
     border: 5px green solid;
     align-content: center;
-    text-align: center;
+    margin: 20px;
+    padding: 20px;
 }
 #todoname {
 
