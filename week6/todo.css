@@ -28,13 +28,13 @@ header {
 
 }
 #allFilter {
-
+    float: left;
 }
 #activeFilter {
-
+    float: left;
 }
 #doneFilter {
-
+    float: left;
 }
 #newtask {
 
