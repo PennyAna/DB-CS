@@ -5,7 +5,7 @@ body {
 header {
 
 }
-#container {
+#todocontainer {
     width: 250px; 
     height: 350px;
     border: 5px blue solid;
@@ -23,29 +23,31 @@ header {
 
 }
 #tododata {
-
-}
-#tododata.li {
-
+    padding: 5px;
+    margin: 5px;
 }
 #tasksList {
-
+    padding: 2px;
 }
 #allFilter {
     float: left;
+    padding: 2px;
 }
 #activeFilter {
     float: left;
+    padding: 2px;
 }
 #doneFilter {
     float: left;
+    padding: 2px;
 }
 #newtask {
     float: left;
+    padding: 2px;
 }	
 #savenew {
     float: left;
-}	
+    padding: 2px;
 footer {
 
 }	
