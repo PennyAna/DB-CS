@@ -12,7 +12,9 @@
 		<h3 id="todoname">To Do</h3>
 		<ul id="todo">
 			<!--TODO List creates new tasks, views current tasks, must be able to mark tasks complete, can remove tasks, can filter by completeness-->
-			<li name="todotask">
+			<li id="newtask">
+			</li>
+			<li id="todotasks">
 			<!--TODO needs checkbox-->
 			<!--TODO needs task description-->
 			<!--TODO needs x close button-->
@@ -20,45 +22,29 @@
 			<!--TODO need to use JS to dynamically create and delete task <li>s-->
 			<!--TODO with JS, filter tasks by completed/not completed-->
 			<!--TODO this will need some of that array method borrowing from the book-->
-			<li name="todotask">
-				
-			</li>
-			<li name="todotask">
-				
-			</li>
-			<li name="todotask">
-				
-			</li>
-			<li name="todotask">
-				
-			</li>
-			<li name="todotask">
-				
-			</li>
 		</ul>
 		<div id="tododata">
-			
-			<!--TODO number of tasks left-->
-			<p id="tasksList"> <!--auto change with innerHTML input as todo # changes-->
+			<!--number of tasks left-->
+			<p id="tasksList"> 
+				<!--auto change with innerHTML input as todo # changes-->
 			</p>
-			<!--TODO all tasks filter button/indicator-->
+			<!--all tasks filter button/indicator-->
 			<button type="button" id="allFilter">
 				ALL
 			</button>
-			<!--TODO active tasks filter button/indicator-->
+			<!--active tasks filter button/indicator-->
 			<button type="button" id="activeFilter">
 				ACTIVE
 			</button>
-			<!--TODO completed tasks filter button/indicator-->
+			<!--completed tasks filter button/indicator-->
 			<button type="button" id="doneFilter">
 				COMPLETED
 			</button>
-			<br><br>
 			<input type="text" id="newtask">
 			<button type="button" id="savenew">
 				+
 			</button>
-		<!--TODO this needs to be a plus sign in box-->
+	
 		</div>
 	</div>
 	<footer>
