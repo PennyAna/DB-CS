@@ -1,6 +1,8 @@
-import * as myTodos from './ToDos.js';
-import * as myLs from './ls.js';
-import * as myUt from './utilities.js';
+import Tasks from './ToDos.js';
+const myTasks = new Tasks('tasks');
+window.addEventListener('load', () => {
+    myTasks.showTaskList();
+});
 
 //To dynamically import a module, the import keyword may be called as a function. When used this way, it returns a promise.
 //import('/modules/my-module.js')
