@@ -8,10 +8,14 @@ header {
 #todocontainer {
     width: 250px; 
     height: 350px;
-    border: 5px blue solid;
+    border: 5px purple solid;
     align-content: center;
     margin: 20px;
     padding: 20px;
+}
+taskcontainer {
+    min-width: 200px;
+    min-height: 280px;
 }
 #todoname {
 
@@ -48,6 +52,4 @@ header {
 #savenew {
     float: left;
     padding: 2px;
-footer {
-
 }	

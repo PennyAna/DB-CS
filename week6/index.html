@@ -9,20 +9,22 @@
 </head>
 <body>
 	<div id="todocontainer">
-		<h3 id="todoname">To Do</h3>
-		<ul id="todo">
-			<!--TODO List creates new tasks, views current tasks, must be able to mark tasks complete, can remove tasks, can filter by completeness-->
-			<li id="newtask">
-			</li>
-			<li id="todotasks">
-			<!--TODO needs checkbox-->
-			<!--TODO needs task description-->
-			<!--TODO needs x close button-->
-			</li>
-			<!--TODO need to use JS to dynamically create and delete task <li>s-->
-			<!--TODO with JS, filter tasks by completed/not completed-->
-			<!--TODO this will need some of that array method borrowing from the book-->
-		</ul>
+		<div id="taskcontainer">
+			<h3 id="todoname">To Do</h3>
+			<ul id="todo">
+				<!--TODO List creates new tasks, views current tasks, must be able to mark tasks complete, can remove tasks, can filter by completeness-->
+				<li id="newtask">
+				</li>
+				<li id="todotasks">
+				<!--TODO needs checkbox-->
+				<!--TODO needs task description-->
+				<!--TODO needs x close button-->
+				</li>
+				<!--TODO need to use JS to dynamically create and delete task <li>s-->
+				<!--TODO with JS, filter tasks by completed/not completed-->
+				<!--TODO this will need some of that array method borrowing from the book-->
+			</ul>
+		</div>
 		<div id="tododata">
 			<!--number of tasks left-->
 			<p id="tasksList"> 
@@ -43,8 +45,7 @@
 			<input type="text" id="newtask">
 			<button type="button" id="savenew">
 				+
-			</button>
-	
+			</button>	
 		</div>
 	</div>
 	<footer>
