@@ -18,7 +18,9 @@ html {
 #nav-elements {
 
 } */
-
+ul {
+	list-style-type: none;
+}
 body {
 	background-color: var(--color-light);
 	color: var(--color-dark-alt);
