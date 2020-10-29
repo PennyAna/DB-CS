@@ -22,7 +22,7 @@ html {
 ul {
 	list-style-type: none;
 }
-noteslist.li {
+#noteslist.li {
 	position: relative;
 	float: left;
 }
