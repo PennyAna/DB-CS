@@ -20,8 +20,8 @@ html {
 } */
 
 li.img {
-	max-height: 200px;
-	max-width: 200px;
+	max-height: 50px;
+	max-width: 50px;
 }
 body {
 	background-color: var(--color-light);
