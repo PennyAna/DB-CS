@@ -15,11 +15,14 @@ html {
 /* #container {
 
 }
-
 #nav-elements {
 
 } */
 
+li {
+	max-height: 200px;
+	max-width: 200px;
+}
 body {
 	background-color: var(--color-light);
 	color: var(--color-dark-alt);
