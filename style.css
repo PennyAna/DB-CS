@@ -24,6 +24,7 @@ ul {
 }
 li {
 	position: relative;
+	float: left;
 }
 body {
 	background-color: var(--color-light);
