@@ -27,7 +27,6 @@ ul {
 	float: left;
 	max-height: 80px;
 	max-width: 80px;
-	overflow: auto;
 }
 body {
 	background-color: var(--color-light);
