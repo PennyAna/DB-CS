@@ -19,10 +19,6 @@ html {
 
 } */
 
-li.img {
-	max-height: 50px;
-	max-width: 50px;
-}
 body {
 	background-color: var(--color-light);
 	color: var(--color-dark-alt);
