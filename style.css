@@ -18,8 +18,12 @@ html {
 #nav-elements {
 
 } */
+
 ul {
 	list-style-type: none;
+}
+li {
+	position: relative;
 }
 body {
 	background-color: var(--color-light);
