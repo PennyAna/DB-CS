@@ -83,6 +83,7 @@ footer {
 	padding: 30px;
 	border-radius: 8px;
 	max-height: fit-content;
+	overflow: auto;
 }
 
 #assigns {
