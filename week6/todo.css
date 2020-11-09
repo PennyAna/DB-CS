@@ -29,7 +29,7 @@ header {
 #tododata {
     padding: 5px;
     margin: 5px;
-    vertical-align: bottom;
+    justify-content: center;
 }
 #tasksList {
     padding: 2px;
