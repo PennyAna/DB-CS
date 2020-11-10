@@ -4,18 +4,20 @@ import ls from "./ls.js";
 //from instructor vides
 document.querySelector('#addBtn').onclick = newTodo();
 
-function loadTodos() {
-    const todoList = ls.getTodoList();
-    todoList.forEach(todo => {const el = createTodoElement(todo) 
-    addToList(el);
-    })
-}
 function newTodo() {
     const todo = createTodo();
     const todoDiv = createTodoElement(todo);
     addToList(todoDiv);
     ls.saveTodo(todo);
 }
+
+function loadTodos() {
+    const todoList = ls.getTodoList();
+    todoList.forEach(todo => {const el = createTodoElement(todo) 
+    addToList(el);
+    })
+}
+
 function createTodo() {
     const input = document.querySelector('#addBtn');
     const newTodo = { id: Date.now(), content: input.value, completed: false};
