@@ -2,7 +2,7 @@ import utils from "./utilities.js";
 import ls from "./ls.js";
 
 //from instructor vides
-document.querySelector("saveNew").onclick = newTask;
+document.querySelector("addBtn").onclick = newTask;
 function const todo = createTodo();
 const todoDiv = createTodoElement(todo);
 addToList(todoDiv);
