@@ -13,8 +13,7 @@ function newTodo() {
 
 function loadTodos() {
     const todoList = ls.getTodoList();
-    todoList.forEach(todo => {const el = createTodoElement(todo) 
-    addToList(el);
+    todoList.forEach(todo => {const el = createTodoElement(todo).addToList(el);
     })
 }
 
