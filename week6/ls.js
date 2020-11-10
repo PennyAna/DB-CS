@@ -4,7 +4,7 @@ function saveTodo(todo) {
     localStorage.setItem('todoList', JSON.stringify(todoList));
 }
 function deleteTodo(id) {
-    const todoList = getTodoList(0;
+    const todoList = getTodoList(0);
         const updatedTodos = todoList.filter(todo => todo.id != id) localStorage.setItem('todoList', JSON.stringify(updatedTodos));
     }
 function getTodoList(){
