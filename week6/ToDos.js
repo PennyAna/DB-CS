@@ -3,7 +3,7 @@ import ls from "./ls.js";
 
 //from instructor vides
 document.querySelector("addBtn").onclick = newTask;
-function const todo = createTodo();
+const todo = createTodo();
 const todoDiv = createTodoElement(todo);
 addToList(todoDiv);
 ls.saveTodo(todo);
