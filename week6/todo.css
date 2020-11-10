@@ -15,13 +15,16 @@ h1 {
     overflow: auto;
 }
 .todos-wrapper {
-
+    background-color: blue;
+    color: white;
 }
 #todos {
-
+    background-color: green;
+    color: white;
 }
 .add-todo-wrapper {
-
+    background-color: red;
+    color: white;
 }
 #todoInput {
 
@@ -38,7 +41,7 @@ h1 {
     color: white;
 }
 .todo {
-    
+
 }
 .complete-btn {
     padding: 2px;
