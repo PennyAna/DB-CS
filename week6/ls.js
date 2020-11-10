@@ -1,5 +1,5 @@
 function saveTodo(todo) {
-    conmst todoList = getTodoList();
+    const todoList = getTodoList();
     todoList.push(todo);
     localStorage.setItem('todoList', JSON.stringify(todoList));
 }
