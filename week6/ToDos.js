@@ -2,7 +2,7 @@ import utils from "./utilities.js";
 import ls from "./ls.js";
 
 //from instructor vides
-document.querySelector('#addBtn').onclick = newTodo;
+document.querySelector('#addBtn').onclick = newTodo();
 
 function loadTodos() {
     const todoList = ls.getTodoList();
@@ -18,7 +18,7 @@ function newTodo() {
 }
 function createTodo() {
     const input = document.querySelector("addBtn");
-    const newTodo = { id: Date.now(), content: input.value, completed: false};
+    const newTodo = { id: Date.now(), content: input.value, completed: false}
     input.value = '';
     return newTodo;
 }
