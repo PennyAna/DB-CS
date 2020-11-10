@@ -27,6 +27,35 @@ h1 {
 
 }
 #addBtn {
-    float: left;
     padding: 2px;
+    background-color: darkslateblue;
+    color: white;
 }	
+
+
+#todoDiv {
+    background-color: palevioletred;
+    color: white;
+}
+.todo {
+    
+}
+.complete-btn {
+    padding: 2px;
+    background-color: darkslateblue;
+    color: white;
+}
+.todoContent {
+    background-color: violet;
+    color: white;
+}
+.todo-delete-btn {
+    padding: 2px;
+    background-color: darkslateblue;
+    color: white;
+}
+
+
+
+    
+
