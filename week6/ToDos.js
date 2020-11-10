@@ -1,106 +1,147 @@
+import utils from "./utilities.js";
+import ls from "./ls.js";
 
-const TodoList = taskList[
-    {
-        id: timestamp, 
-        content:string, 
-        completed: bool
-    }
-];
+//from instructor vides
+document.querySelector("saveNew").onclick = newTask;
+function const todo = createTodo();
+const todoDiv = createTodoElement(todo);
+addToList(todoDiv);
+ls.saveTodo(todo);
+
+function loadTodos() {
+    const todoList = ls.getTodoList();
+    todoList.foreach(todo => {const el = createTodoElement(todo) addToList(el);
+    })
+}
+function newTodo() {
+    const todo = createTodo();
+    const todoDiv = createTodoElement(todo);
+    addToList(todoDiv);
+    ls.saveTodo(todo);
+}
+function createTodo() {
+    const input = document.querySelector("newTask");
+    const newTodo = { id: Date.now(), content: input.nodeValue, completed: false};
+    input.value = '';
+    return newTodo;
+}
+function createTodoElement(todo) {
+    //todo div
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('todo');
+    //complete btn
+    const completeBtn = document.createElement('button');
+    completeBtn.classList.add('complete-btn');
+    //todo content
+    const todoContent = document.createElement('div');
+    todoContent.innerText = todo.content;
+    todoContent.classList.add('todo-content');
+    //delete btn
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('data-id', todo.id);
+    deleteBtn.classList.add('todo-delete-btn');
+    deleteBtn.innerText = "X";
+    deleteBtn.onclick = deleteTodo;
+
+    todoDiv.appendChild(completeBtn);
+    todoDiv.appendChild(todoContent);
+    todoDiv.appendChild(deleteBtn);
+    return todoDiv;
+}
+
+function addToList(todoDiv) {
+    //add to doc
+    document.querySelector('#todos').appendChild(todoDiv);
+}
+
+function deleteTodo(e) {
+    const btn = e.currentTarget;
+    ls.deleteTodo(btn.getAttribute('data-id'));
+    document.querySelector('#todos').innerHTML = '';
+    loadTodos();
+}
+
 
 export default class Tasks {
-    //in constructor, set variable with element our todo list will be built in and key will use to read/write from localStorage
     constructor(elementId) {
         this.parentElement = document.getElementById(elementId);
-   
     }
-    filterAllTasks() {
-        return TodoList;
-    }
-    filterActiveTasks() {
-        return this.filterAllTasks().find(task.completed === false);
-    }
-    filterDoneTasks() {
-        return this.filterAllTasks().find(task.completed === true);
-    }
-    showTaskList() {
-        renderTaskList(this.parentElement, this.filterAllTasks());
-        this.addTaskListener();
-    }
-    showOneTask() {
-        const task = this.getHikeByName(hikeName);
-        this.parentElement.innerHTML = '';
-        this.parentElement.appendChild(renderOneTask(task));
-    }
-    addTaskListener() {
-        const childrenArray = Array.from(this.parentElement.children);
-        childrenArray.forEach(child=>{
-        child.addEventListener('touchend', e => {
-            this.showOneTask(e.currentTarget.dataset.name);
-        }); 
-    });
-    }
-} //end of Tasks class
-
-function showTaskList() {
-    const taskListElement = document.getElementById("tasks");
-    taskListElement.innerHTML = "";
-    renderTaskList(taskList, taskListElement);
-}
-function renderTaskList(parent, tasks) {
-    tasks.forEach(task => {
-        parent.appendChild(renderOneTask(task));
-});
-}
-function renderOneTask(task) {
-   const item = document.createElement("li");
-   task.innerHTML = <div>
-   <input type="checkbox"></input>
-   <p>${task.content}</p> 
-   <button type="button">X</button>;
-   </div>
-   return item;
-}
-  /*need if statement to show crossed out/completed tasks*/
-/*also order tasks by timestamp(id)*/
-
-
-
-    /* saveTodo(key, task) {
-        var todoName = document.getElementById("").nodeValue;//key
-        var todoHTML = document.getElementById("").nodeValue;//task info
-        localStorage.addTodo(todoName, todoHTML); //key, task info
-    }
-    //create saveTodo(task, key)
-
-    //create addTodo()
-    addTodo(key, task) {
+    //getter functions
+    //grab whole TodoList
+    //grab single/next taskItem in TodoList
+    getSingle(){
 
     }
-    //bind Todos.addTodo to add button on add todo form in html
+    //filter functions
+    //return new list of checkboxes == false
+    filterActive(){
 
-    //create getTodos(key) 
-    getTodos(key) {
+    }
+    //return new list of checkboxes == true
+    filterDone(){
+
+    }
+    removeSingle(){
+    //use taskNumbering() to reset task num
+    }  
+    addSingle(){
+    //use taskNumbering() to reset task num
+    var todoName = document.getElementById("").nodeValue;//key
+    var todoHTML = document.getElementById("").nodeValue;//task info
+    localStorage.writeToLS(todoName, todoHTML); //key, task info 
+    }
+     //returns number of tasks left/counts number of taskItems in TodoList
+    taskNumbering(){
+        return TodoList.length();
+    }
+};
+//outside of the class we put the event listeners tied to the buttons
+//these have access to the Task functions because we'll create a new Task object for them to work with. 
+const taskItem = {
+    id: timestamp, 
+        content:string, 
+        completed: bool
+};
+
+const TodoList = new Array[taskItem];
+
+const doneList = new Array[taskItem];
+
+const activeList = new Array[taskItem];
+  
+ 
+    //render functions
+    //display all taskItems in TodoList with html et checkboxes
+    renderAll(){
+        //needs getAll
+    }
+    //display all taskItems in TodoList returned by filterActive with html et checkboxes
+    renderActive(){
+        //needs filterActive
+    }
+    //display all taskItems in TodoList returned by filterDone with html et checkboxes
+    renderDone(){
+        //needs filterDone
+    }
+    //display single/next taskItem in TodoList with html et checkboxes
+    renderSingle(){
+
+    }
+    //event listeners
+    //for checkboxes
+    //also needs to cross out task description
     
-    }
-    //create renderTodoList(list, element)
-    renderTodoList(list, element) {
+    //for 'x' (close task) button
+    //uses removeSingle() 
 
-    }
-    //create Todos.listTodos()
-   /*  listTodos() {
-        var todoHTML = document.getElementById("").nodeValue;
-        document.getElementById("").innerHTML = todoHTML;
-    } */
-    //create Todos.completeTodo()
-   /*  completeTodo() {
+    //for all button
+    //uses getAll()->renderAll()
 
-    }
-    //create Todos.removeTodo()
-    removeTodo() {
+    //for active button
+    //uses getAll()->filterActive()->renderSingle() loop
 
-    }
-    //create Todos.filterTodos()
-    filterTodos() {
+    //for completed button
+    //uses getAll()->filterDone()->renderSingle() loop
 
-    }
- */ 
+    
+

@@ -1,4 +1,6 @@
-
+export default {
+    
+}
 
 //do querySelector lookup @param {string} selector
 //selector passed to querySelector
