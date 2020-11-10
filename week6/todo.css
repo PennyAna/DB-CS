@@ -2,10 +2,10 @@ body {
     align-content: center;
     text-align: center;
 }
-header {
+h1 {
 
 }
-#todocontainer {
+#container {
     width: 350px; 
     height: 450px;
     border: 5px purple solid;
@@ -13,44 +13,20 @@ header {
     margin: 20px;
     padding: 20px;
     overflow: auto;
-#taskcontainer {
-    min-width: 200px;
-    min-height: 300px;
 }
-#todoname {
+.todos-wrapper {
 
 }
-#todo {
+#todos {
 
 }
-#todo.li {
+.add-todo-wrapper {
 
 }
-#tododata {
-    padding: 5px;
-    margin: 5px;
-    justify-content: center;
+#todoInput {
+
 }
-#tasksList {
-    padding: 2px;
-}
-#allFilter {
-    float: left;
-    padding: 2px;
-}
-#activeFilter {
-    float: left;
-    padding: 2px;
-}
-#doneFilter {
-    float: left;
-    padding: 2px;
-}
-#newtask {
-    float: left;
-    padding: 2px;
-}	
-#savenew {
+#addBtn {
     float: left;
     padding: 2px;
 }	
