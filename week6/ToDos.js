@@ -6,7 +6,7 @@ document.querySelector('#addBtn').onclick = newTodo();
 
 function loadTodos() {
     const todoList = ls.getTodoList();
-    todoList.foreach(todo => {const el = createTodoElement(todo) 
+    todoList.forEach(todo => {const el = createTodoElement(todo) 
     addToList(el);
     })
 }
