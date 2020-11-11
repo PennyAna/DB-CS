@@ -32,7 +32,7 @@ function createTodoElement(todo) {
     //complete btn
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
-    completeBtn.onclick = todo.content.strike();
+    completeBtn.onclick = String(todo.content).strike();
     //todo content
     const todoContent = document.createElement('div');
     todoContent.innerText = todo.content;
