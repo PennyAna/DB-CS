@@ -32,17 +32,10 @@ function createTodoElement(todo) {
     //complete btn
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
-    completeBtn.onclick = completeTask(todo);
+    completeBtn.onclick = completeTask;
     //todo content
     const todoContent = document.createElement('div');
     todoContent.innerText = todo.content;
-    if (todo.completed == true) {   
-        todoContent.style.textDecoration = 
-        'line-through';
-    }
-    else if (todo.completed == false) {
-        todoContent.style.textDecoration = 'none';
-    }
     todoContent.classList.add('todo-content');
     //delete btn
     const deleteBtn = document.createElement('button');
@@ -56,13 +49,11 @@ function createTodoElement(todo) {
     todoDiv.appendChild(deleteBtn);
     return todoDiv;
 }
-function completeTask(todo) {
-    if (todo.completed == true) {
-        todo.completed = false;
-    }
-    else {
-        todo.completed = true;
-    }
+function completeTask(e) {
+    const btn = e.currentTarget;
+    ls.completeTask(btn.getAttribute('data-id'));
+    document.querySelector('#todoContent').style.textDecoration = 'line-through';
+   loadTodos();
 }
 function addToList(todoDiv) {
     //add to doc
