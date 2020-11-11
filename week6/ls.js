@@ -1,5 +1,5 @@
 export default {
-    saveTodo, getTodoList, deleteTodo
+    saveTodo, getTodoList, deleteTodo, completeTask
 }
 
 function saveTodo(todo) {
@@ -11,6 +11,11 @@ function deleteTodo(id) {
     const todoList = getTodoList(0);
     const updatedTodos = todoList.filter(todo => todo.id != id);localStorage.setItem('todoList', JSON.stringify(updatedTodos));
     }
+function completeTask(completed) {
+    const todoList = getTodoList(0);
+    const updatedTodos = todoList.filter(todo=> todo.completed != false);
+    localStorage.setItem('todoList', JSON.stringify(updatedTodos));
+}
 function getTodoList(){
     const todoListString = localStorage.getItem('todoList');
     let todoList = [];
