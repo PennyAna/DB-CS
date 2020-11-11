@@ -40,6 +40,9 @@ function createTodoElement(todo) {
         todoContent.style.textDecoration = 
         'line-through';
     }
+    else if (todo.completed == false) {
+        todoContent.style.textDecoration = 'none';
+    }
     todoContent.classList.add('todo-content');
     //delete btn
     const deleteBtn = document.createElement('button');
@@ -54,16 +57,12 @@ function createTodoElement(todo) {
     return todoDiv;
 }
 function completeTask(todo) {
-    console.log(todo.completed);
     if (todo.completed == false) {
         todo.completed = true;
-        console.log(todo.completed);
     }
     else {
         todo.completed = false;
-        console.log(todo.completed);
     }
-    console.log(todo.completed);
 }
 function addToList(todoDiv) {
     //add to doc
