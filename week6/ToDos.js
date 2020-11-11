@@ -57,11 +57,11 @@ function createTodoElement(todo) {
     return todoDiv;
 }
 function completeTask(todo) {
-    if (todo.completed == false) {
-        todo.completed = true;
+    if (todo.completed == true) {
+        todo.completed = false;
     }
     else {
-        todo.completed = false;
+        todo.completed = true;
     }
 }
 function addToList(todoDiv) {
