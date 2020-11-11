@@ -33,7 +33,7 @@ function createTodoElement(todo) {
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
     const checked = String(todo.content);
-    completeBtn.onclick = checked.strike();
+    completeBtn.onclick = function (checked) {checked.strike()};
     //todo content
     const todoContent = document.createElement('div');
     todoContent.innerText = todo.content;
