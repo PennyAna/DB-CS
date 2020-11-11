@@ -51,8 +51,8 @@ function createTodoElement(todo) {
 }
 function completeTask(e) {
     const btn = e.currentTarget;
-    document.querySelector('#todoContent').style.textDecoration = 'line-through';
-    ls.completeTask(btn.getAttribute('data-completed'));
+    const div = document.querySelector('#todoContent')
+    ls.completeTask(btn.getAttribute('data-completed'), div);
    loadTodos();
 }
 function addToList(todoDiv) {
