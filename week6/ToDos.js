@@ -35,9 +35,8 @@ function createTodoElement(todo) {
     completeBtn.onclick = completeTask(todo);
     //todo content
     const todoContent = document.createElement('div');
-    todoContent.innerText = todo.content;
     if (todo.completed == true) {
-        todo.innerText = String(todo.content).strike();
+        todoContent.innerText = todo.content.strike();
     }
     todoContent.classList.add('todo-content');
     //delete btn
