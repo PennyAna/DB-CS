@@ -50,7 +50,6 @@ function createTodoElement(todo) {
     todoDiv.appendChild(deleteBtn);
     return todoDiv;
 }
-function strikeTask
 function addToList(todoDiv) {
     //add to doc
     document.querySelector('#todos').appendChild(todoDiv);
