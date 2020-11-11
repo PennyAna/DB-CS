@@ -35,8 +35,8 @@ function createTodoElement(todo) {
     completeBtn.onclick = completeTask(todo);
     //todo content
     const todoContent = document.createElement('div');
-    if (todo.completed == true) {
-        todoContent.innerText = todo.content;
+    todoContent.innerText = todo.content;
+    if (todo.completed == true) {   
         todoContent.style.textDecoration = 
         'line-through';
     }
