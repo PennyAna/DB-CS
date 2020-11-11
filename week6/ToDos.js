@@ -37,7 +37,8 @@ function createTodoElement(todo) {
     const todoContent = document.createElement('div');
     if (todo.completed == true) {
         todoContent.innerText = todo.content;
-        todoContent.style.textDecorationStyle = line-through; 
+        todoContent.style.textDecoration = 
+        'line-through';
     }
     todoContent.classList.add('todo-content');
     //delete btn
