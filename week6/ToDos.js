@@ -32,11 +32,13 @@ function createTodoElement(todo) {
     //complete btn
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
-    completeBtn.onclick = todo => {todo.completed = true;};
-    console.log(todo.completed);
+    completeBtn.onclick = completeTask;
     //todo content
     const todoContent = document.createElement('div');
     todoContent.innerText = todo.content;
+    if (todo.completed == true) {
+        todo.innerText = todo.content.strike();
+    }
     todoContent.classList.add('todo-content');
     //delete btn
     const deleteBtn = document.createElement('button');
@@ -49,6 +51,18 @@ function createTodoElement(todo) {
     todoDiv.appendChild(todoContent);
     todoDiv.appendChild(deleteBtn);
     return todoDiv;
+}
+function completeTask(todo) {
+    console.log(todo.completed);
+    if (todo.completed == false) {
+        todo.completed = true;
+        console.log(todo.completed);
+    }
+    else {
+        todo.completed = false;
+        console.log(todo.completed);
+    }
+    console.log(todo.completed);
 }
 function addToList(todoDiv) {
     //add to doc
