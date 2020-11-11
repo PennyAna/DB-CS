@@ -32,8 +32,7 @@ function createTodoElement(todo) {
     //complete btn
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
-    const checked = String(todo.content);
-    completeBtn.onclick = function (checked) {checked.strike()};
+    completeBtn.onclick = function (todo) {todo.completed = true; todo.content.strike();}
     //todo content
     const todoContent = document.createElement('div');
     todoContent.innerText = todo.content;
@@ -50,7 +49,7 @@ function createTodoElement(todo) {
     todoDiv.appendChild(deleteBtn);
     return todoDiv;
 }
-
+function strikeTask
 function addToList(todoDiv) {
     //add to doc
     document.querySelector('#todos').appendChild(todoDiv);
