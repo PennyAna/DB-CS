@@ -6,7 +6,7 @@ const fearBool = window.confirm("Did you fear that alert?");
 const fearLevel = window.prompt("Using a scale of 1-10, how much did you fear the alert?");
 const fearDiv = document.createElementById('div');
 const fearResults = fearBool.concat(fearLevel);
-fearDiv.innerHTML = fearResults.value;
+fearDiv.innerHTML = fearResults;
 document.body.appendChild(fearDiv);
 }
 
@@ -26,18 +26,18 @@ function browseInfo() {
     const wholeUrl = window.location.toString();
 
     const locationInfo = {
-        browsOs: browsOs.value, 
-        url: url.value, 
-        fullUrl: fullUrl.value, 
-        protocol: protocol.value, 
-        host: host.value, 
-        hostname: hostname.value, 
-        port: port.value, 
-        pathName: pathName.value, 
-        search: search.value, 
-        hash: hash.value, 
-        origin: origin.value, 
-        wholeUrl: wholeUrl.value
+        browsOs: browsOs, 
+        url: url, 
+        fullUrl: fullUrl, 
+        protocol: protocol, 
+        host: host, 
+        hostname: hostname, 
+        port: port, 
+        pathName: pathName, 
+        search: search, 
+        hash: hash, 
+        origin: origin, 
+        wholeUrl: wholeUrl
     };
     const locationDiv = document.createElementById('div');
     const locationResults = document.locationInfo.split("; ");
@@ -56,11 +56,15 @@ document.getElementById("replaceBtn").addEventListener(click, window.location.re
 
 document.getElementById("historyBtn").addEventListener(click, historyThrice());
 function historyThrice() {
+    const historyLength = window.history.length();
+    const prevHistory = window.history.go(-1);
+    const currentHistory = window.history.go(0);
+    const fwdHistory = window.history.go(1);
     const historyResults = {
-        window.history.length(), 
-        window.history.go(-1),
-        window.history.go(0),
-        window.history.go(1)
+        historyLength: historyLength, 
+        prevHistory: prevHistory,
+        currentHistory: currentHistory, 
+        fwdHistory: fwdHistory
     }
     for (history of historyResults) {
         document.write(history);
@@ -79,11 +83,11 @@ function screenInfo() {
     const winColor = window.screen.colorDepth();
     const screenDiv = document.createElementById('div');
     const screenResults = {
-        screenHeight: screenHeight.value, 
-        screenWidth: screenWidth.value, 
-        availableWidth: availableWidth.value, 
-        availableHeight: availableHeight.value, 
-        winColor: winColor.value
+        screenHeight: screenHeight, 
+        screenWidth: screenWidth, 
+        availableWidth: availableWidth, 
+        availableHeight: availableHeight, 
+        winColor: winColor
         };
     screenDiv.innerHTML = function (){
         for (screen of screenResults) {
