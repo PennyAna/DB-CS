@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 portfolio</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <script src="week9.js"></script>
+</head>
+<body>
+    <h1><a href="index.html">WDD 330 portfolio</a></h1>
+    <h2>Week</h2>
+    <div>
+        JavaScript: Novice to Ninja
+        Chapter 9: The Window Object
+    </div>
+    <div>
+    JS Examples from Text 
+    <button type="button" id="dialogBtn" onclick="">Please Click Here</button><small>Look at the end of the document to see the result</small><br>
+    <button type="button" id="forwardBtn">Page Forward</button><br>
+    <button type="button" id="backwardBtn">Page Backward</button><br>
+    <button type="button" id="screenBtn" onclick="screenInfo()">Screen Information</button><br>
+    <button type="button" id="reloadBtn">Reload the Page</button><br>
+    <button type="button" id="assignBtn">Go to a Different Page</button><br>
+    <button type="button" id="replaceBtn">Go to a Different Page Again</button><small>Click on Week09 assignments to get back</small><br>
+    <button type="button" id="historyBtn" onclick="historyThrice()">See Limited Page History</button><br>
+    <button type="button" id="cookieBtn" onclick="cookieJar()">Click here to see some fantastical cookies!</button><small>Look at the end of the document to see the result</small><br>
+    <button type="button" id="animateBtn"><a href="./animation/index.html">Click here to see the magic JS and CSS squares!</a></button><br>
+    </div>
+    <div>
+        Notes
+        <p>
+        BOM (Browser Object Model)
+        collection of properties et methods with info de browser/computer screen
+        ex: find dimensions of screen view, history
+        no official standard, sed mostly supptd by all major browsers
+        avail thru window obj, each browser window, tab, popup, frame, iframe have one. 
+        Node.js != window obj, sed still global obj (const global = this; to assign)
+        </p>
+        <p>
+        Globals
+        globals created w/o using const, let, var - window.globalName 
+        sed refer w/o using window for more portable b/t enviros
+        parseInt() and isNaN() methods of global obj (ES6 made these methods of Number obj as well)
+        </p>
+        <p>
+        Dialogs
+        alert(), confirm(), prompt() not part of ES standard sed major browser suppt
+        all stop execution of program to tell/do/get something, return undefined/bool/str(or null)
+        Mostly not to be used sed confirm could be final check before delete item/resource  
+        etiam browsers allow users to disable dialogs so cannot rely on their use
+        </p>
+        <p>
+        Browser info
+        window.navigator.userAgent returns info on browser and os being used
+        sed can be modded to masque as a diff browser, etiam, all browsers still include mozilla in userAgent b/c legacy Netscape compat
+        et userAgent deprecated from official
+        window.location obj with info de url of current pg, has props w/info de fragments of url
+        window.location.href returns full str url, read/write prop so can be changed by assign
+        window.location.protocol describes protocol used (http:, https:, pop2:, ftp: etc.) as str
+        window.location.host returns str w/domain of current url and port num (omitted if default port 80 used)
+        window.location.hostname returns str with only domain of current URL
+        window.location.port returns str with port num sed empty string if port not explicit stated in URL
+        window.location.pathname returns str of path post domain 
+        window.location.search returns str with ? + query str params. if none, returns empty str.
+        window.location.hash returns str w/ # + fragment id. empty str if none
+        window.location.origin returns str w/protocol et domain where current pg origin from (read-only)
+        window.location obj methods:
+        reload() forces reload of current pg, if given true param, force browser server reload non cached pg
+        assign() used to load alter resource from url as param 
+        replace() almost same as assign() sed current pg not stored in sess hist, unable to nav back using back btn 
+        toString() returns str with whole url 
+        </p>
+        <p>
+        Browser History:
+        window.history access info de prev visited pgs in current browser sess 
+        history != new HTML5 History API
+        window.history.length prop shows num pgs visited pre current pg
+        window.history.go() go to specific pg, 0 is current pg (1: go fwd 1 pg, 0: reload current, -1: bwd 1 pg)
+        also window.history.forward() et window.history.back() acts like browser fwd/bwd btns 
+        </p>
+        <p>
+        Controlling Windows:
+        window.open(), new window taking url of pg to be opened as 1st param, window title as 2nd param, list of attr as 3rd param, can also be assigned to a var so can be ref'd later
+        ex: const popup = window.open('url', 'title', 'width=100, height=100, resizable=yes');
+        pop.close() to close window if have ref
+        window.moveTo() move window to x/y coord of screen, ita two params (x, y)
+        window.resizeTo() resize window, two params for width/height 
+        sed popups annoying et bad usability to resize/move user's window et browsers disallow some methods (can't resize w/1+ tabs, can't move/resize window not created by window.open())
+        </p>
+        <p>
+        Screen Information:
+        window.screen obj info de screen browser displayed on
+        use window.screen.height, window.screen.width for px dimension 
+        window.screen.availWidth, window.screen.availHeight used to find h/w - os menus
+        window.screen.colorDepth finds color bit depth of user's monitor sed not useful sed for user statistic collect 
+        screen obj more useful for mobile, lets turn off device screen, detect orient change et lock orient
+        most of prev meths et props have been superseded by better practices (media queries, feature detection, etc.)
+        </p>
+        <p>
+        Document Object: 
+        window obj has document obj w/props et meths to deal w/pg loaded into window 
+        document.write() writes str to pg, if pg loaded, str replaces current doc completely
+        can include HTML in str to be part of DOM tree
+        et used w/in doc in script tags to inject str into markup w/o overwriting rest of html
+        sed document.write() frowned on b/c only used by mixing js w/in html 
+        </p>
+        <p>
+        Cookies:
+        small files saved local on user comp
+        invented by Netscape to get around HTTP being stateless protocol ("I have no memory of this place") from one request/visit to another
+        store info to be retrieved b/t requests
+        restriction: can only be read by web pg from same domain that set them, stops site accessing info de users like other sites visited 
+        et limited up to 4KB data, 20 cookies allowed per domain 
+        personalize user browse exp, store user pref, track user choice (shopping cart), authentication et tracking users 
+        cookie use for data storage being replaced by new HTML5 localStorage API since allows more data storage 
+        still useful for retaining state info b/c passed b/t client/server eveyr http request 
+        take form of text file w/ list of name/val pairs
+        ex: "name=Superman; hero=true; city=Metropolis"
+        EU Cookie Directive requires sites based in EU country to ask permission pre cookie setting. 
+        create cookie: assign to js 'cookie jar' using document.cookie prop ex document.cookie = 'name=Superman';
+        assigning new cookie won't overwrite entire property, sed append to end of string. 
+        change cookie: reassign to document.cookie w/same name sed diff val, updates that name/val pair 
+        read cookie: to see current contents of cookie jar, document.cookie
+        use split to create array for each name/val pair, then for of loop to iterate
+        ex: const cookies = document.cookie.split("; ");
+        for (crumb of cookies) {
+            const [key, value] = crumb.split("=");
+            console.log(`The value of ${key} is ${value}`);
+        }
+        cookie expire dates-session cookies by default, deleted when browser sess finished (when user closes tab or window)
+        can be made persistent w/ "; expires=date" to end of cookie when set (date = date val in UTC str format (Day, DD-Mon-YYYY HH:MM:SS GMT))
+        ex: const expiryDate = new Date();
+        const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;
+        expirydate.setTime(tomorrow);
+        document.cookie = `name=Batman; expires=${ expiryDate.toUTCString()}`;
+        et alter set max-age val (in seconds) not supptd in IE before v.10 document.cookie = 'name=Batman; max-age=86400' (86400 secs = 1 day)
+        apps w/ sensitive info don't rely on cookie expiry w/these methods. browsers can hold info stored in expiring cookie when session restore feature used post crash
+        default, cookies read by pgs inside same directory/domain as file was set, security->access limited
+        can change path so any pg in root can read cookie, add : path=/ to end of cookie when set
+        et set domain w/ "; domain=domainName" to end of cookie (lets all subdomains read)
+        add ; secure to end of cookie to ensure only transmit over secure HTTPS network
+        to delete, set to expire in past
+        JS cookie handling basic/cumbersome, libraries like Cookies.js or jsCookie avail
+        </p>
+        <p>
+        Timing Functions: 
+        window.setTimeout() takes callback to function as 1st param et num of ms as 2nd param, returns int: id used to ref that timeout. 
+        can cancel timeout using window.clearTimeout(id int)
+        window.setInterval() repeat invoke callback funct post every given num of ms
+        can use anon or named function window.setInterval(function name, ms time)
+        to stop, use window.clearInterval() w/var var repeat as arg 
+        window.clearInterval(function name)
+        cavete using method w/this with these timing methods, binding of this is set to window obj not method obj so results may vary. Bind this to obj instead
+        </p>
+        <p>
+        Animation:
+        can use setTimeout() setInterval() methods can animate elements on pg. 
+        rotates using css3 transform prop, this was only way to animate w/JS until window.requestAnimationFrame() method developed
+        requestAnimationFrame() works like setInterval() sed improved, make best use of browser builtin graphics-handling, not running animation when inactive tab, ita smoother performance
+        supported in all major browsers (IE v.10+)
+        frame rate cannot be set using this, usually 60 fps sed optimized for device 
+        to start, call requestAnimationFrame(function name), returns id that can be used to stop animation w/window.cancelAnimationFrame(id name)
+        SED animations in browser can be made w/pure CSS 
+        set animation: spin 4s linear infinite;
+        @keyframes spin {from {transform:rotate(0deg);} to {transform:rotate(3600deg);}}
+        better to use CSS for animation effects
+        </p>
+    </div>
+</body>
+</html>
