@@ -15,7 +15,7 @@ function dialogs() {
 window.alert("I'm an Alert! Fear Me!");
 const fearBool = window.confirm("Did you fear that alert?");
 const fearLevel = window.prompt("Using a scale of 1-10, how much did you fear the alert?");
-const fearDiv = document.createElementById('div');
+const fearDiv = document.createElement('div');
 const fearResults = fearBool.concat(fearLevel);
 fearDiv.innerHTML = fearResults;
 document.body.appendChild(fearDiv);
@@ -48,7 +48,7 @@ function browseInfo() {
         origin: origin, 
         wholeUrl: wholeUrl
     };
-    const locationDiv = document.createElementById('div');
+    const locationDiv = document.createElement('div');
     const locationResults = document.locationInfo.split("; ");
     locationDiv.innerHTML = function () { 
         for (location of locationResults) {
@@ -78,7 +78,7 @@ function screenInfo() {
     const availableWidth = window.screen.availWidth();
     const availableHeight = window.screen.availHeight();
     const winColor = window.screen.colorDepth();
-    const screenDiv = document.createElementById('div');
+    const screenDiv = document.createElement('div');
     const screenResults = {
         screenHeight: screenHeight, 
         screenWidth: screenWidth, 
@@ -102,7 +102,7 @@ document.cookie = 'Rogue2=Pippin';
 document.cookie = 'Healer=Sam';
 document.cookie = 'RingBearer=Frodo';
 function cookieJar() {
-    const cookieDiv = document.createElementById('div');
+    const cookieDiv = document.createElement('div');
     const cookies = document.cookie.split("; ");
     cookieDiv.innerHTML = function () { 
         for (crumb of cookies) {
