@@ -1,5 +1,5 @@
 
-document.getElementById("dialogBtn").onclick = 
+document.getElementById("dialogBtn").addEventListener(click, dialogs); 
 function dialogs() {
 window.alert("I'm an Alert! Fear Me!");
 const fearBool = window.confirm("Did you fear that alert?");
@@ -10,7 +10,7 @@ fearDiv.innerHTML = fearResults.value;
 document.body.appendChild(fearDiv);
 }
 
-document.getElementById("browserBtn").onclick = 
+document.getElementById("browserBtn").addEventListener(click, browseInfo);
 function browseInfo() {
     const browsOs = window.navigator.userAgent();
     const url = window.location();
@@ -50,11 +50,11 @@ function browseInfo() {
 }
 
 
-document.getElementById("reloadBtn").addEventListener = window.location.reload();
-document.getElementById("assignBtn").addEventListener = window.location.assign('../assignments.html');
-document.getElementById("replaceBtn").addEventListener = window.location.replace('../assignments.html');
+document.getElementById("reloadBtn").addEventListener(click, window.location.reload());
+document.getElementById("assignBtn").addEventListener(click, window.location.assign('../assignments.html'));
+document.getElementById("replaceBtn").addEventListener(click, window.location.replace('../assignments.html'));
 
-document.getElementById("historyBtn").onclick = 
+document.getElementById("historyBtn").addEventListener(click, historyThrice());
 function historyThrice() {
     const historyResults = {
         window.history.length(), 
@@ -67,10 +67,10 @@ function historyThrice() {
     }
 }
 
-document.getElementById("forwardBtn").addEventListener(window.history.forward());
-document.getElementById("backwardBtn").addEventListener(window.history.back());
+document.getElementById("forwardBtn").addEventListener(click, window.history.forward());
+document.getElementById("backwardBtn").addEventListener(click, window.history.back());
 
-document.getElementById("screenBtn").onclick = 
+document.getElementById("screenBtn").addEventListener(click, screenInfo());
 function screenInfo() {
     const screenHeight = window.screen.height();
     const screenWidth = window.screen.width();    
@@ -102,7 +102,7 @@ document.cookie = 'Rogue2=Pippin';
 document.cookie = 'Healer=Sam';
 document.cookie = 'RingBearer=Frodo';
 
-document.getElementById("cookieBtn").onclick = 
+document.getElementById("cookieBtn").addEventListener(click, cookieJar());
 function cookieJar() {
     const cookieDiv = document.createElementById('div');
     const cookies = document.cookie.split("; ");
