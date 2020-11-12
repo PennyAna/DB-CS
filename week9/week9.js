@@ -21,7 +21,7 @@ fearDiv.innerHTML = fearResults;
 document.body.appendChild(fearDiv);
 }
 function browseInfo() {
-    const browsOs = window.navigator.userAgent();
+    const browsOs = window.navigator.userAgent;
     const url = window.location();
     const fullUrl = window.location.href();
     const protocol = window.location.protocol();
