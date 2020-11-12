@@ -23,15 +23,15 @@ document.body.appendChild(fearDiv);
 function browseInfo() {
     const browsOs = window.navigator.userAgent;
     const url = window.location;
-    const fullUrl = window.location.href();
-    const protocol = window.location.protocol();
-    const host = window.location.host();
-    const hostname = window.location.hostname();
-    const port = window.location.port();
-    const pathName = window.location.pathname();
-    const search = window.location.search();
-    const hash = window.location.hash();
-    const origin = window.location.origin();
+    const fullUrl = window.location.href;
+    const protocol = window.location.protocol;
+    const host = window.location.host;
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    const pathName = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    const origin = window.location.origin;
     const wholeUrl = window.location.toString();
 
     const locationInfo = {
