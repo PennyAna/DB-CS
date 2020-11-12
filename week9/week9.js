@@ -49,11 +49,10 @@ function browseInfo() {
         wholeUrl: wholeUrl
     };
     const locationDiv = document.createElement('div');
-    const locationResults = document.locationInfo.split("; ");
     locationDiv.innerHTML = function () { 
         for (location of locationResults) {
-        const [key, value] = location.split("=");
-        (`The value of ${key} is ${value}`);};
+            const [key, value] = screen.split("=");
+            locationDiv.innerText = "The value of ${key} is ${value}"};
     document.body.appendChild(locationDiv);
     }
 }
