@@ -1,12 +1,12 @@
 window.onload = function(){
     document.querySelector("#dialogBtn").addEventListener('click', dialogs); 
     document.querySelector("#browserBtn").addEventListener('click', browseInfo);
-    document.querySelector("#reloadBtn").addEventListener('click', window.location.reload);
+/*     document.querySelector("#reloadBtn").addEventListener('click', window.location.reload);
     document.querySelector("#assignBtn").addEventListener('click', window.location.assign('../assignments.html'));
     document.querySelector("#replaceBtn").addEventListener('click', window.location.replace('../assignments.html'));
     document.querySelector("#historyBtn").addEventListener('click', historyThrice);
     document.querySelector("#forwardBtn").addEventListener('click', window.history.forward);
-    document.querySelector("#backwardBtn").addEventListener('click', window.history.back);
+    document.querySelector("#backwardBtn").addEventListener('click', window.history.back); */
     document.querySelector("#screenBtn").addEventListener('click', screenInfo);
     document.querySelector("#cookieBtn").addEventListener('click', cookieJar);
 }
