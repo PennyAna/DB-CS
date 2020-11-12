@@ -22,7 +22,7 @@ document.body.appendChild(fearDiv);
 }
 function browseInfo() {
     const browsOs = window.navigator.userAgent;
-    const url = window.location();
+    const url = window.location;
     const fullUrl = window.location.href();
     const protocol = window.location.protocol();
     const host = window.location.host();
