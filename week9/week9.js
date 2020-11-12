@@ -23,7 +23,7 @@ function browseInfo() {
     const origin = window.location.origin();
     const wholeUrl = window.location.toString();
 
-    const locationInfo {
+    const locationInfo = {
         browsOs: browsOs.value, 
         url: url.value, 
         fullUrl: fullUrl.value, 
