@@ -12,5 +12,3 @@ function rotate() {
     squareElementTwo.style.transform = `rotate(${angle}deg)`
     window.requestAnimationFrame(rotate);
 }
-const id = requestAnimationFrame(rotate);
-document.getElementById("cancelbtn").addEventListener = cancelAnimationFrames(id);
