@@ -10,7 +10,7 @@ fearDiv.innerHTML = fearResults.value;
 document.body.appendChild(fearDiv);
 }
 
-document.getElementById("browseBtn").onclick = 
+document.getElementById("browserBtn").onclick = 
 function browseInfo() {
     const browsOs = window.navigator.userAgent();
     const url = window.location();

@@ -1,14 +1,14 @@
 const squareElementOne = document.getElementById('squareOne');
-let angle = 0;
+let angleOne = 0;
 setInterval( ()=>{
-    angle = (angle + 2) % 360;
-    squareElementOne.style.transform = `rotate(${angle}deg)`
+    angleOne = (angleOne + 2) % 360;
+    squareElementOne.style.transform = `rotate(${angleOne}deg)`
 }, 1000/60);
 
 const squareElementTwo = document.getElementById('squareTwo');
-let angle = 0;
+let angleTwo = 0;
 function rotate() {
-    angle = (angle + 2)%360;
-    squareElementTwo.style.transform = `rotate(${angle}deg)`
+    angleTwo = (angleTwo + 2)%360;
+    squareElementTwo.style.transform = `rotate(${angleTwo}deg)`
     window.requestAnimationFrame(rotate);
 }
