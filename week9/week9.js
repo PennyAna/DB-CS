@@ -35,18 +35,18 @@ function browseInfo() {
     const wholeUrl = window.location.toString();
 
     const locationInfo = {
-        browsOs: browsOs, 
-        url: url, 
-        fullUrl: fullUrl, 
-        protocol: protocol, 
-        host: host, 
-        hostname: hostname, 
-        port: port, 
-        pathName: pathName, 
-        search: search, 
-        hash: hash, 
-        origin: origin, 
-        wholeUrl: wholeUrl
+        browsOs: browsOs.value, 
+        url: url.value, 
+        fullUrl: fullUrl.value, 
+        protocol: protocol.value, 
+        host: host.value, 
+        hostname: hostname.value, 
+        port: port.value, 
+        pathName: pathName.value, 
+        search: search.value, 
+        hash: hash.value, 
+        origin: origin.value, 
+        wholeUrl: wholeUrl.value
     };
     const locationDiv = document.createElement('div');
     locationDiv.innerHTML = function () { 
@@ -72,11 +72,11 @@ function historyThrice() {
     }
 }
 function screenInfo() {
-    const screenHeight = window.screen.height();
-    const screenWidth = window.screen.width();    
-    const availableWidth = window.screen.availWidth();
-    const availableHeight = window.screen.availHeight();
-    const winColor = window.screen.colorDepth();
+    const screenHeight = window.screen.height;
+    const screenWidth = window.screen.width;    
+    const availableWidth = window.screen.availWidth;
+    const availableHeight = window.screen.availHeight;
+    const winColor = window.screen.colorDepth;
     const screenDiv = document.createElement('div');
     const screenResults = {
         screenHeight: screenHeight, 
