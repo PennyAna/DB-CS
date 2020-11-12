@@ -1,5 +1,5 @@
 
-document.querySelector("#dialogBtn").addEventListener(click, dialogs()); 
+document.querySelector("#dialogBtn").addEventListener(click, dialogs); 
 function dialogs() {
 window.alert("I'm an Alert! Fear Me!");
 const fearBool = window.confirm("Did you fear that alert?");
@@ -10,7 +10,7 @@ fearDiv.innerHTML = fearResults;
 document.body.appendChild(fearDiv);
 }
 
-document.querySelector("#browserBtn").addEventListener(click, browseInfo());
+document.querySelector("#browserBtn").addEventListener(click, browseInfo);
 function browseInfo() {
     const browsOs = window.navigator.userAgent();
     const url = window.location();
@@ -50,11 +50,11 @@ function browseInfo() {
 }
 
 
-document.querySelector("#reloadBtn").addEventListener(click, window.location.reload());
+document.querySelector("#reloadBtn").addEventListener(click, window.location.reload);
 document.querySelector("#assignBtn").addEventListener(click, window.location.assign('../assignments.html'));
 document.querySelector("#replaceBtn").addEventListener(click, window.location.replace('../assignments.html'));
 
-document.querySelector("#historyBtn").addEventListener(click, historyThrice());
+document.querySelector("#historyBtn").addEventListener(click, historyThrice);
 function historyThrice() {
     const historyLength = window.history.length();
     const prevHistory = window.history.go(-1);
@@ -71,10 +71,10 @@ function historyThrice() {
     }
 }
 
-document.querySelector("#forwardBtn").addEventListener(click, window.history.forward());
-document.querySelector("#backwardBtn").addEventListener(click, window.history.back());
+document.querySelector("#forwardBtn").addEventListener(click, window.history.forward);
+document.querySelector("#backwardBtn").addEventListener(click, window.history.back);
 
-document.querySelector("#screenBtn").addEventListener(click, screenInfo());
+document.querySelector("#screenBtn").addEventListener(click, screenInfo);
 function screenInfo() {
     const screenHeight = window.screen.height();
     const screenWidth = window.screen.width();    
@@ -106,7 +106,7 @@ document.cookie = 'Rogue2=Pippin';
 document.cookie = 'Healer=Sam';
 document.cookie = 'RingBearer=Frodo';
 
-document.querySelector("#cookieBtn").addEventListener(click, cookieJar());
+document.querySelector("#cookieBtn").addEventListener(click, cookieJar);
 function cookieJar() {
     const cookieDiv = document.createElementById('div');
     const cookies = document.cookie.split("; ");
