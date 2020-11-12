@@ -1,4 +1,5 @@
 
+document.getElementById("dialogBtn").onclick = 
 function dialogs() {
 window.alert("I'm an Alert! Fear Me!");
 const fearBool = window.confirm("Did you fear that alert?");
@@ -9,6 +10,7 @@ fearDiv.innerHTML = fearResults.value;
 document.body.appendChild(fearDiv);
 }
 
+document.getElementById("browseBtn").onclick = 
 function browseInfo() {
     const browsOs = window.navigator.userAgent();
     const url = window.location();
@@ -52,6 +54,7 @@ document.getElementById("reloadBtn").addEventListener = window.location.reload()
 document.getElementById("assignBtn").addEventListener = window.location.assign('../assignments.html');
 document.getElementById("replaceBtn").addEventListener = window.location.replace('../assignments.html');
 
+document.getElementById("historyBtn").onclick = 
 function historyThrice() {
     const historyResults = {
         window.history.length(), 
@@ -67,6 +70,7 @@ function historyThrice() {
 document.getElementById("forwardBtn").addEventListener(window.history.forward());
 document.getElementById("backwardBtn").addEventListener(window.history.back());
 
+document.getElementById("screenBtn").onclick = 
 function screenInfo() {
     const screenHeight = window.screen.height();
     const screenWidth = window.screen.width();    
@@ -98,6 +102,7 @@ document.cookie = 'Rogue2=Pippin';
 document.cookie = 'Healer=Sam';
 document.cookie = 'RingBearer=Frodo';
 
+document.getElementById("cookieBtn").onclick = 
 function cookieJar() {
     const cookieDiv = document.createElementById('div');
     const cookies = document.cookie.split("; ");
