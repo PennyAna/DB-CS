@@ -1,13 +1,13 @@
 window.onload = function(){
     document.querySelector("#dialogBtn").addEventListener('click', dialogs); 
     document.querySelector("#browserBtn").addEventListener('click', browseInfo);
+    document.querySelector("#screenBtn").addEventListener('click', screenInfo);
 /*     document.querySelector("#reloadBtn").addEventListener('click', window.location.reload);
     document.querySelector("#assignBtn").addEventListener('click', window.location.assign('../assignments.html'));
     document.querySelector("#replaceBtn").addEventListener('click', window.location.replace('../assignments.html'));
     document.querySelector("#historyBtn").addEventListener('click', historyThrice);
     document.querySelector("#forwardBtn").addEventListener('click', window.history.forward);
     document.querySelector("#backwardBtn").addEventListener('click', window.history.back); */
-    document.querySelector("#screenBtn").addEventListener('click', screenInfo);
     document.querySelector("#cookieBtn").addEventListener('click', cookieJar);
 }
 
@@ -35,18 +35,18 @@ function browseInfo() {
     const wholeUrl = window.location.toString();
 
     const locationInfo = {
-        browsOs: browsOs.value, 
-        url: url.value, 
-        fullUrl: fullUrl.value, 
-        protocol: protocol.value, 
-        host: host.value, 
-        hostname: hostname.value, 
-        port: port.value, 
-        pathName: pathName.value, 
-        search: search.value, 
-        hash: hash.value, 
-        origin: origin.value, 
-        wholeUrl: wholeUrl.value
+        browsOs: window[browsOs], 
+        url: window[url], 
+        fullUrl: window[fullUrl], 
+        protocol: window[protocol], 
+        host: window[host], 
+        hostname: window[hostname], 
+        port: window[port], 
+        pathName: window[pathName], 
+        search: window[search], 
+        hash: window[hash], 
+        origin: window[origin], 
+        wholeUrl: window[wholeUrl]
     };
     const locationDiv = document.createElement('div');
     locationDiv.innerHTML = function () { 
