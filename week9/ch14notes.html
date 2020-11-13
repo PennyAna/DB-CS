@@ -9,6 +9,7 @@
     <header>JavaScript:Novice to Ninja Ch. 14 Notes</header>
     <div>
         <p>
+
             HTML5
             HTML5.1, W3C recommended Nov 2016
             HTML equiv of ES6 for JS, 5.2 in dev 
@@ -87,6 +88,9 @@
             </p>
             <p>
                 API privacy concerns 
+                especially newer APIs, consider security and privacy if using 
+                ambient light API could make data theft possible
+                battery API dropped by Apple et Mozilla w/concerns over user profiling
             </p>
             <p>
                 Web Workers
@@ -105,10 +109,7 @@
                     when worker complette stopped using terminate() method from main script: worker.terminate() 
                     or close() form worker script: self.close()
             </p>
-            <p>
-                Factorizing Example
 
-            </p>
             <p>
                 Shared Web Workers & Service Workers
                 above are dedicated web workers linked to script that loaded the worker, unable to be used by another 
@@ -121,21 +122,94 @@
             </p>
             <p>
                 Websockets
+                downfall of HTTP protocol is only get response when request sent 
+                if response comes later, you'd have to send another request to get it
+                partially solved w/Ajax et method-polling-where request periodically sent to see if response ready
+                Websocket-new protocol allowing 2way comm w/server (also push messaging), connection kept open et responses pushed to client as received
             </p>
             <p>
                 Notifications
+                allows showing messages using syst notifications, usually popup sed depends on os, advantage: still be displayed even if page calling isn't current tab
+                Obvs need permission form user: requestPermission() method of Notification global obj 
+                ex: if(window.Notification) {
+                    Notification.requestPermission();
+                }
+                returns promise w/obj set to 'granted' or 'denied'. if yes, create new notification using constructor funct 
+                ex: if(window.Notification) {
+                    Notification.requestPermission()
+                    .then((permission) => {
+                        if(Notification.permission === 'granted') {
+                            new Notification('notificationTitle'); 
+                        }
+                    });
+                }
+                constructor also accepts 2nd param: obj of options including body (text to appear below title), icon (can specify link to image to be displayed in notification)
+                ex: const notification= new Notification('titleName', {
+                    body: 'optionalMsg', 
+                    icon: 'image.png'
+                });
+                depends on browser et os, som notifications auto close post short time period, some stay til user clicks. close from code w/ close()
+                events can react to: click, show, close, etc.
             </p>
             <p>
                 Multimedia
+                HTML5 intro'd <audio> et <video> tags to insert clips into page. also intro'd Media API for controlling playback of clips using JS
+                <audio src='/song.mp3'controls>Your browser does not support the video element</audio>
+                <video src='url' controls>Your browser does not support the video element</video>
+                any content inside tags only display if browser does not suppt them.
+                controls attrib added w/o val, will display browser's native controls (play, pause, volume)
+                audio/video element ref'd by var using DOM method 
+                ex: const video = document.getElementsByTagName('video')[0];
+                play() starts from current posit 
+                pause() pause at current posit
+                volume prop num used to set audio volume 
+                muted prop bool to mute audio 
+                currentTime prop num val used to jmp to another part of clip +- seconds 
+                playbackRate prop fastfwd or rewind clip by changing playback val. val=1 normal speed, +8 would be 8x as fast as normal 
+                loop prop bool set to true for clip loop
+                duration prop used to see length of clip 
+                some of props only avail once browser receives all metadata assoc'd w/vid 
+                to ensure val returned, use event listener to fire once metadata loaded
+                ex: video.addEventListener('loadmetadata', () => {console.log(video.duration); });
+                audio/video events: 
+                    play-fires when clip starts et resumes post pause
+                    pause- fires when clip paused
+                    volumechange fires when vol changed
+                    loadedmetadata fires when all vid metadata loaded 
+                events let you respond to user interact w/video
+                audio/video alements bring native suppt for multimedia into browser, API gives devs control of playb ack audio/video
+                Is this why we're officially phasing out flash??
             </p>
-    
             <p>
                 Drawing w/Canvas
+                canvas el intro'd to draw graphics real time on web page using JS 
+                canvas el rect el on pg w/coordinate syst starting at (0,0) in top-left corner 
+                add canvas el to pg: <canvas> used specifying height and width, anything placed inside tag only displays if canvas not supported
+                ex: <canvas id='canvas'width='400'height='400'>Your browser does not support the canvas element</canvas>
+                access in JS program using const canvasElement = document.getElementById('canvas');
+                context is object containing all methods used to draw on canvas (2D or 3D (with WebGL))
+                const context = canvasElement.getContext('2d');
+                fill/stroke colors changed by assigning css color to fillstyle and strokestyle props 
+                lineWidth prop used to set width of line strokes, detault 1px but can change 
+                fillRext() draw filled-in rectangle, first two params coordinates of top-left corner, 3rd param width, last param height. 
+                strokeRect() works same way w/rectangle not filled in 
+                straight lines draw employing moveTo() and lineTo(), used together to produce path
+                nothing drawn until stroke() called
+                arc() used to draw arc of given radius from given point, first two params coordinates of center of arc, next param radius, next param start angle, next param finish angle (both angles measured in radians), last param bool for whether to draw counter-clockwise 
+                hint ( Math.PI * 2 == full turn)
+                fillText() used to write text onto canvas, first param text to be displayed, next two params x,y coords 
+                font prop sets font style used else inherited from canvas element's css setting (if changing, do so before calling fillText())
+                Advantage: drawing data charts updated in real-time et animate HTML5 games
             </p>
             <p>
                 Shims & Polyfills
+                phrases sometimes used interchangeably
+                since devs can't control how up-to-date user browsers are, need shims/polyfills: libraries of code allowing API use as usual, filling in necesse code not natively in user browser 
+                shim: piece of code adding missing fucntionality to browser sed implement method differ slightly from standard API
+                polyfill: shim that does the same thing using API commands that would be used if feature supptd natively 
+                Advantage: use APIs in code and get expected results despite browsers, use usual set of standard API commands w/o having to write addt'l code for diff levels of suppt, when users update browsers, seamless experience, no change.
+                once enough users have updated browsers, can remove polyfill w/o having to update any js code.
             </p>
-
     </div>
 </body>
 </html>
