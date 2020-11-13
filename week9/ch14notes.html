@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript:Novice to Ninja Ch. 14 Notes</title>
+</head>
+<body>
+    <header>JavaScript:Novice to Ninja Ch. 14 Notes</header>
+    <div>
+        <p>
+            HTML5
+            HTML5.1, W3C recommended Nov 2016
+            HTML equiv of ES6 for JS, 5.2 in dev 
+            sep'd into modules allowing diff features to be dev'd at different paces/implementations w/o waiting for others' completion
+            Check site: Can I Use for working elements
+            names of attributes individual sed use format: 
+                start with data- 
+                contain only lc letters, nums, hyphens, dots, colons, underscores
+                include opt str val
+            info in attribs used to id elements ex: all elements w/attrib data-dropdown id'd as dropdown menu 
+            also use attrib val to filter ex: find all elements w/ data-rating val of 3+
+            each element has dataset prop to access data- attrib it contains
+            ex: const valname = document.getElementById('elname'); const valname2 = valname.dataset.valname2; 
+            data- prefix dropped here, attrib used as if prop of dataset obj 
+            if data- attrib name contains hyphens, replaced w/camel-case
+            most browsers suppt data-, in older, any data- attrib can be grabbed w/getAttribute()
+            above ex can be const valname2= valname.getAttribute('data-valname2');
+            restrict for only str val overcome w/encoding any JS obj/val as JSON str then type convert later
+            ex const maxLength = Number(element.dataset.maxLength);
+            data attribs == convenient way to add data directly to HTML markup == better UX
+            </p>
+            <p>
+                HTML5 APIs
+                APIs to gain access to hardware like cameras, batteries, geolocation, graphics
+                new APIs always needed to keep apace w/latest hardware et devices
+            </p>
+            <p>
+                HTML5 Web Storage
+                provides key-val store on client com simil to cookies w/fewer restrictions, more storage capacity, easier to underscores
+                use to store info de users et app-specific info to be used during future sess
+                crucial diffs w/cookies: 
+                    info stored not shared w/server on every request
+                    info avail in multiple windows of browser if domain is same
+                    storage capacity limit usually around 5GB per domain (no actual specified limit sed general browser limit)
+                    data stored does not auto expire
+                if browser suppts, window obj has prop localStorage, native obj w/props/meths to store data 
+                info saved in key-val pairs, vals only str 
+                also sessionStorage obj working the same way tho data only saved for current sess
+                ex: localStorage.setItem('name', 'Some Name');
+                if above, close browser, reopen and localStorage.getItem('name'); get the val you put there. 
+                Don't need to use getter and setter, assignment like var also used localStorage.name = 'aName';
+                to remove: localStorage.removeItem('name');
+                or delete localStorage.name;
+                complete wipe, use clear(): localStorage.clear();
+                when val saved to localStorage, storage event fired on any other windows/tabs from same domain et only if the val of the item being saved changed. event obj sent by event listener to callback has props w/info de updated item: 
+                    key tells key of item changed
+                    newValue tells new val changed to
+                    oldValue tells prev val
+                    storageArea tells if stored in local or sess storage
+                below logs info de Web Storage changes (will not work locally)
+                addEventListener('storage', (event) => { console.log(`The ${event.key} was updated from ${$event.oldValue} to ${event.newValue} and saved in ${event.storageArea}`)}, false);
+                using JSON, can store any JS obj in local storage:
+                localStorage.setItem('valName', JSON.stringify(objName); saves obj as JSON str using val as key 
+                to retrieve: valName = JSON.parse(localStorage.getItem('valName'));
+            </p>
+            <p>
+                Geolocation 
+                obtain geographical position of device: 
+                    find user exact location, link to nearby places, measure user speed.
+                can be used to filter data based on user's location/speed/direction of travel ex: search function return results based on location (obvs privacy concerns/laws granted by user first)
+                if avail, prop of navigator obj 
+                prop has method getCurrentPosition() that returns position obj to specific callback function called youAreHere() ex: navigator.geolocation.getCurrentPosition(youAreHere);
+                posit obj passed to youArehere() has coords prop w/latitude/longitude prop for coords
+                can use these w/other apps or web services (like mapping)
+                position obj props used to find out info de location/movement of device:
+                    position.speed returns ground speed of device, meters per second
+                    position.altitude returns estimate of device's altitude in meters above WGS84 ellipsoid, standard measure for center/earth 
+                    position.heading returns direction device is moving in, measured in bearing in degrees clockwise from north
+                    position.timestamp returns time position info was recorded 
+                    other props calculate accuracy of measurements, sometimes do not need specificity but general position
+                        position.accuracy returns accuracy of lat and log props in meters, lower returned val = more accurate measurements, also position.altitudeAccuracy prop returning accuracy of altitude prop in meters
+                geolocation also has watchPosition(), calls callback funct when position of device updated, returns id to ref posit being watched 
+                const id = navigator.geolocation.watchPosition(youAreHere);
+                clearWatch() used to stop callback being called, using id of the watch as arg
+                geolocation API interface to add location-based info to site/app 
+            </p>
+            <p>
+                API privacy concerns 
+            </p>
+            <p>
+                Web Workers
+                allow process to run in bkgrnd, adding suppt for concurrency in single-threaded JS 
+                processes taking a long time carried out in bkgrnd so site can function w/o script has become unresponsive msg
+                worker() constructor function to create new worker, ex: const worker = new Worker('task.js');
+                (Chrome won't let you run workers from local files, workaround: start Chrome using --allow-file-access-from-files flag or use diff browser, only use flag for dev not reg browse) 
+                Worker() takes name of js file as arg, if file, it's downloaded async, worker only starts once file completely downloaded. if !file, throw error 
+                var assigned to constructor refer to worker in main program, in worker script keyword self used
+                use msgs to communicate b/t main and worker script: 
+                    postMessage() used to send msg and start worker working, arg can send any data to web worker. 
+                    ex: worker.PostMessage('msg'); (this is from main.js)
+                    self.postMessage('msg'); (this is form worker script)
+                    when msg posted, message event fired so dealt w/using eventlistener, data sent as arg store din data prop of event obj passed to callback function
+                    ex: worker.addEventListener('msg', (event) => {console.log(event.data);}, false);
+                    when worker complette stopped using terminate() method from main script: worker.terminate() 
+                    or close() form worker script: self.close()
+            </p>
+            <p>
+                Factorizing Example
+
+            </p>
+            <p>
+                Shared Web Workers & Service Workers
+                above are dedicated web workers linked to script that loaded the worker, unable to be used by another 
+                can create shared web workers that allow access to same worker obj by diff scripts on same domain 
+                workers especially useful to perform complex operations ( like math)
+                Service Worker API allows worker script to run in bkgrnd w/ability to intercept network requests
+                so take alternative action if network offline, effective app-like ofline experiences
+                also allow access to push notifications/bkgrnd syncing
+                require secure network to run on HTTPS to avoid code hijacking/malicious code network requests
+            </p>
+            <p>
+                Websockets
+            </p>
+            <p>
+                Notifications
+            </p>
+            <p>
+                Multimedia
+            </p>
+    
+            <p>
+                Drawing w/Canvas
+            </p>
+            <p>
+                Shims & Polyfills
+            </p>
+
+    </div>
+</body>
+</html>
