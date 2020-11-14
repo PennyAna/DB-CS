@@ -79,24 +79,24 @@ function screenInfo() {
 
 
 function cookieJar() {
-    if (window.onload()){
-        window.document.cookie = 'Wizard=Gandalf';
-        window.document.cookie = 'Ranger=Aragorn';
-        window.document.cookie = 'Druid=Legolas';
-        window.document.cookie = 'Fighter=Gimli';
-        window.document.cookie = 'Rogue1=Merry';
-        window.document.cookie = 'Rogue2=Pippin';
-        window.document.cookie = 'Healer=Sam';
-        window.document.cookie = 'RingBearer=Frodo';
-    };
+    document.cookie = 'Wizard=Gandalf';
+    document.cookie = 'Ranger=Aragorn';
+    document.cookie = 'Druid=Legolas';
+    document.cookie = 'Fighter=Gimli';
+    document.cookie = 'Rogue1=Merry';
+    document.cookie = 'Rogue2=Pippin';
+    document.cookie = 'Healer=Sam';
+    document.cookie = 'RingBearer=Frodo';
     const cookieDiv = document.createElement('div');
     const cookies = document.cookie.split("; ");
+    console.log(document.cookie);
+    console.log(cookies);
     const cookieResults = function () {
         for (crumb of cookies) {
             const [key, value] = crumb.split("=");
             (`The value of ${key} is ${value}`);};
     }
     console.log(cookieResults);
-    cookieDiv.innerText = cookieResults.value;
+    cookieDiv.innerText = cookieResults;
     document.body.appendChild(cookieDiv);
 }
