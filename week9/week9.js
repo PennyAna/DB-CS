@@ -99,7 +99,5 @@ function cookieJar() {
         cookieString.append(crumb);
     }
     cookieDiv.innerText = cookieString;
-        
-    }
     document.body.appendChild(cookieDiv);
 }
