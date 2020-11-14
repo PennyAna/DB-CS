@@ -43,11 +43,12 @@ function browseInfo() {
         wholeUrl: window[wholeUrl]
     };
     const locationDiv = document.createElement('div');
-    locationDiv.innerHTML = () => { 
+    locationDiv.innerText = function () {
         for (location of locationResults) {
             const [key, value] = screen.split("=");
-            locationDiv.innerText = "The value of ${key} is ${value}"};
-    document.body.appendChild(locationDiv);
+            locationDiv.innerText = "The value of ${key} is ${value}";
+        };
+        document.body.appendChild(locationDiv);
     }
 } 
 function screenInfo() {
@@ -64,11 +65,12 @@ function screenInfo() {
         availableHeight: availableHeight, 
         winColor: winColor
         };
-    screenDiv.innerHTML = () => {
+    screenDiv.innerText = function () {
         for (screen of screenResults) {
             const [key, value] = screen.split("=");
-            (`The value of ${key} is ${value}`);};
+            (`The value of ${key} is ${value}`);
         };
+    };
     document.body.appendChild(screenDiv);
 }
 document.cookie = 'Wizard=Gandalf';

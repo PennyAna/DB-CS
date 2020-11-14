@@ -6,3 +6,4 @@ const squareElementTwo = document.getElementById('squareTwo');
                 window.requestAnimationFrame(rotate);
             }
             const id = requestAnimationFrame(rotate);
+//I'm not sure why this won't work since it's the exact code from the book
