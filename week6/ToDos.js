@@ -72,7 +72,7 @@ function deleteTodo(e) {
 function applyFilter() {
     document.querySelector('#todos').innerHTML='';
     let filteredTodos = [];
-    const allTodos = ls.getTodoListList();
+    const allTodos = ls.getTodoList();
     if(e.currentTarget.id == "activeFilter") {
         filteredTodos = utils.activeFilter(allTodos);   
     }
