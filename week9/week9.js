@@ -4,6 +4,8 @@ window.onload = function(){
     document.querySelector("#browserBtn").addEventListener('click', browseInfo);
     document.querySelector("#screenBtn").addEventListener('click', screenInfo); 
     document.querySelector("#cookieBtn").addEventListener('click', cookieJar);
+    document.querySelector("#makeCookie1").addEventListener('click', makeCookie1);
+    document.querySelector("#makeCookie2").addEventListener('click', makeCookie2);
 }
 function dialogs() {
     window.alert("I'm an Alert! Fear Me!");
@@ -76,15 +78,12 @@ function screenInfo() {
     screenDiv.innerText = screenResults.value;
     document.body.appendChild(screenDiv);
 }
-
-document.cookie = 'Wizard=Gandalf';
-    document.cookie = 'Ranger=Aragorn';
-    document.cookie = 'Druid=Legolas';
-    document.cookie = 'Fighter=Gimli';
-    document.cookie = 'Rogue1=Merry';
-    document.cookie = 'Rogue2=Pippin';
-    document.cookie = 'Healer=Sam';
-    document.cookie = 'RingBearer=Frodo';
+function makeCookie1() {
+    document.cookie = 'name=chocolateChip';
+}
+function makeCookie2() {
+    document.cookie = 'type=delicious';
+}
 function cookieJar() {
     cookieString = document.cookie;
     const cookieDiv = document.createElement('div');
