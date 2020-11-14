@@ -88,17 +88,18 @@ function cookieJar() {
         window.document.cookie = 'RingBearer=Frodo';
     };
     const cookieDiv = document.createElement('div');
-    const cookieResults = function () { 
     const cookies = document.cookie.split("; ");
+    const cookieResults = function () {
         for (crumb of cookies) {
-        const [key, value] = crumb.split("=");
-        (`The value of ${key} is ${value}`);};
+            const [key, value] = crumb.split("=");
+            (`The value of ${key} is ${value}`);};
     }
     const cookieString = "";
-    cookieDiv.innerText = function () { 
-        for (crumb of cookieResults) {
-            cookieString.append(crumb);
-        }
+    for (crumb of cookieResults) {
+        cookieString.append(crumb);
+    }
+    cookieDiv.innerText = cookieString;
+        
     }
     document.body.appendChild(cookieDiv);
 }
