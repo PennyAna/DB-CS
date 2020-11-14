@@ -3,7 +3,6 @@ window.onload = function(){
     document.querySelector("#dialogBtn").addEventListener('click', dialogs); 
     document.querySelector("#browserBtn").addEventListener('click', browseInfo);
     document.querySelector("#screenBtn").addEventListener('click', screenInfo); 
-    document.querySelector("#historyBtn").addEventListener('click', historyThrice);
     document.querySelector("#cookieBtn").addEventListener('click', cookieJar);
 }
 function dialogs() {
@@ -16,17 +15,17 @@ fearDiv.innerHTML = fearResults;
 document.body.appendChild(fearDiv);
 }
 function browseInfo() {
-    const browsOs = window.navigator.userAgent;
-    const url = window.location;
-    const fullUrl = window.location.href;
-    const protocol = window.location.protocol;
-    const host = window.location.host;
-    const hostname = window.location.hostname;
-    const port = window.location.port;
-    const pathName = window.location.pathname;
-    const search = window.location.search;
-    const hash = window.location.hash;
-    const origin = window.location.origin;
+    const browsOs = String(window.navigator.userAgent);
+    const url = String(window.location);
+    const fullUrl = String(window.location.href);
+    const protocol = String(window.location.protocol);
+    const host = String(window.location.host);
+    const hostname = String(window.location.hostname);
+    const port = String(window.location.port);
+    const pathName = String(window.location.pathname);
+    const search = String(window.location.search);
+    const hash = String(window.location.hash);
+    const origin = String(window.location.origin);
     const wholeUrl = window.location.toString();
 
     const locationInfo = {
@@ -44,28 +43,13 @@ function browseInfo() {
         wholeUrl: window[wholeUrl]
     };
     const locationDiv = document.createElement('div');
-    locationDiv.innerHTML = function () { 
+    locationDiv.innerHTML = () => { 
         for (location of locationResults) {
             const [key, value] = screen.split("=");
             locationDiv.innerText = "The value of ${key} is ${value}"};
     document.body.appendChild(locationDiv);
     }
-}
-function historyThrice() {
-    const historyLength = window.history.length();
-    const prevHistory = window.history.go(-1);
-    const currentHistory = window.history.go(0);
-    const fwdHistory = window.history.go(1);
-    const historyResults = {
-        historyLength: historyLength, 
-        prevHistory: prevHistory,
-        currentHistory: currentHistory, 
-        fwdHistory: fwdHistory
-    }
-    for (history of historyResults) {
-        document.write(history);
-    }
-}
+} 
 function screenInfo() {
     const screenHeight = window.screen.height;
     const screenWidth = window.screen.width;    
@@ -80,7 +64,7 @@ function screenInfo() {
         availableHeight: availableHeight, 
         winColor: winColor
         };
-    screenDiv.innerHTML = function (){
+    screenDiv.innerHTML = () => {
         for (screen of screenResults) {
             const [key, value] = screen.split("=");
             (`The value of ${key} is ${value}`);};
