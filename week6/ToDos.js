@@ -69,7 +69,7 @@ function deleteTodo(e) {
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
 }
-function applyFilter() {
+function applyFilter(e) {
     document.querySelector('#todos').innerHTML='';
     let filteredTodos = [];
     const allTodos = ls.getTodoList();
