@@ -7,7 +7,7 @@ function dialogs() {
     const fearBool = String(window.confirm("Did you fear that alert?"));
     const fearLevel = String(window.prompt("Using a scale of 1-10, how much did you fear the alert?"));
     const fearDiv = document.createElement('div');
-    const fearDivParent = document.getElementById("dialogBtn");
+    const fearDivParent = document.getElementById("fearContainer");
     const fearResults = "";
     if (fearBool) {
          fearResults = `You feared me by a magnitude of ${fearLevel}`;
