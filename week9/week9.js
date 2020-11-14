@@ -15,36 +15,36 @@ fearDiv.innerHTML = fearResults;
 document.body.appendChild(fearDiv);
 }
 function browseInfo() {
-    const browsOs = String(window.navigator.userAgent);
-    const url = String(window.location);
-    const fullUrl = String(window.location.href);
-    const protocol = String(window.location.protocol);
-    const host = String(window.location.host);
-    const hostname = String(window.location.hostname);
-    const port = String(window.location.port);
-    const pathName = String(window.location.pathname);
-    const search = String(window.location.search);
-    const hash = String(window.location.hash);
-    const origin = String(window.location.origin);
+    const browsOs = window.navigator.userAgent;
+    const url = window.location;
+    const fullUrl = window.location.href;
+    const protocol = window.location.protocol;
+    const host = window.location.host;
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    const pathName = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    const origin = window.location.origin;
     const wholeUrl = window.location.toString();
 
     const locationInfo = {
-        browsOs: window[browsOs], 
-        url: window[url], 
-        fullUrl: window[fullUrl], 
-        protocol: window[protocol], 
-        host: window[host], 
-        hostname: window[hostname], 
-        port: window[port], 
-        pathName: window[pathName], 
-        search: window[search], 
-        hash: window[hash], 
-        origin: window[origin], 
-        wholeUrl: window[wholeUrl]
+        browsOs: browsOs, 
+        url: url, 
+        fullUrl: fullUrl, 
+        protocol: protocol, 
+        host: host, 
+        hostname: hostname, 
+        port: port, 
+        pathName: pathName, 
+        search: search, 
+        hash: hash, 
+        origin: origin, 
+        wholeUrl: wholeUrl
     };
     const locationDiv = document.createElement('div');
     locationDiv.innerText = function () {
-        for (location of locationResults) {
+        for (location of locationInfo) {
             const [key, value] = screen.split("=");
             locationDiv.innerText = "The value of ${key} is ${value}";
         };
@@ -73,6 +73,7 @@ function screenInfo() {
     };
     document.body.appendChild(screenDiv);
 }
+if (document.onload()){
 document.cookie = 'Wizard=Gandalf';
 document.cookie = 'Ranger=Aragorn';
 document.cookie = 'Druid=Legolas';
@@ -80,7 +81,8 @@ document.cookie = 'Fighter=Gimli';
 document.cookie = 'Rogue1=Merry';
 document.cookie = 'Rogue2=Pippin';
 document.cookie = 'Healer=Sam';
-document.cookie = 'RingBearer=Frodo';
+document.cookie = 'RingBearer=Frodo';}
+
 function cookieJar() {
     const cookieDiv = document.createElement('div');
     const cookies = document.cookie.split("; ");
