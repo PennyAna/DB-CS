@@ -87,7 +87,8 @@ function cookieJar() {
     document.cookie = 'Rogue2=Pippin';
     document.cookie = 'Healer=Sam';
     document.cookie = 'RingBearer=Frodo';
+    cookieString = JSON.stringify(document.cookie);
     const cookieDiv = document.createElement('div');
-    cookieDiv.innerText = document.cookie;
+    cookieDiv.innerText = cookieString;
     document.body.appendChild(cookieDiv);
 }
