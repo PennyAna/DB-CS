@@ -77,9 +77,7 @@ function screenInfo() {
     document.body.appendChild(screenDiv);
 }
 
-
-function cookieJar() {
-    document.cookie = 'Wizard=Gandalf';
+document.cookie = 'Wizard=Gandalf';
     document.cookie = 'Ranger=Aragorn';
     document.cookie = 'Druid=Legolas';
     document.cookie = 'Fighter=Gimli';
@@ -87,7 +85,8 @@ function cookieJar() {
     document.cookie = 'Rogue2=Pippin';
     document.cookie = 'Healer=Sam';
     document.cookie = 'RingBearer=Frodo';
-    cookieString = JSON.stringify(document.cookie);
+function cookieJar() {
+    cookieString = document.cookie;
     const cookieDiv = document.createElement('div');
     cookieDiv.innerText = cookieString;
     document.body.appendChild(cookieDiv);
