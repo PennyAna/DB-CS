@@ -8,15 +8,8 @@ function saveTodo(todo) {
     localStorage.setItem('todoList', JSON.stringify(todoList));
 }
 function deleteTodo(id) {
-    const todoList = getTodoList(0);
+    const todoList = getTodoList();
     const updatedTodos = todoList.filter(todo => todo.id != id);localStorage.setItem('todoList', JSON.stringify(updatedTodos));
-    }
-function completeTask(completed, div) {
-    const todoList = getTodoList(0);
-    const updatedTodos = todoList.filter(todo=> todo.completed != false);
-    updatedTodos.forEach(div => div.style.textDecoration = 'line-through');
-    todoList.concat(updatedTodos);
-    localStorage.setItem('todoList', JSON.stringify(updatedTodos));
 }
 function getTodoList(){
     const todoListString = localStorage.getItem('todoList');
@@ -26,4 +19,3 @@ function getTodoList(){
     }
     return todoList;
 }
-

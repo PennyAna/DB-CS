@@ -6,6 +6,7 @@ document.querySelector('#addBtn').onclick = newTodo;
 document.querySelector('#allFilter').onclick = applyFilter;
 document.querySelector('#doneFilter').onclick = applyFilter;
 document.querySelector('#activeFilter').onclick = applyFilter;
+document.querySelector('#complete-btn').onclick = completeTask;
 
 function loadTodos() {
     const todoList = ls.getTodoList();
@@ -52,12 +53,7 @@ function createTodoElement(todo) {
     todoDiv.appendChild(deleteBtn);
     return todoDiv;
 }
-function completeTask(e) {
-    const btn = e.currentTarget;
-    const div = document.querySelector('#todoContent')
-    ls.completeTask(btn.getAttribute('data-completed'), div);
-   loadTodos();
-}
+
 function addToList(todoDiv) {
     //add to doc
     document.querySelector('#todos').appendChild(todoDiv);
@@ -83,5 +79,7 @@ function applyFilter(e) {
         const el = createTodoElement(todo)
         addTodoList(el);
     })
-    
+}
+function completeTask() {
+console.log("complete me!");
 }
