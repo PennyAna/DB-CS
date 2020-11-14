@@ -94,7 +94,7 @@ function cookieJar() {
     const cookieString = "";
     for (crumb of cookies) {
         const [key, value] = crumb.split("=");
-       cookieString.append((`The value of ${key} is ${value}`))
+       cookieString.concat(`The value of ${key} is ${value}`)
         }
     console.log(cookieString);
     cookieDiv.innerText = cookieString;
