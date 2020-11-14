@@ -34,19 +34,12 @@ h1 {
     background-color: darkslateblue;
     color: white;
 }	
-
-
 #todoDiv {
     background-color: palevioletred;
     color: white;
 }
 .todo {
 
-}
-.complete-btn {
-    padding: 2px;
-    background-color: darkslateblue;
-    color: white;
 }
 .todoContent {
     background-color: violet;
@@ -58,7 +51,10 @@ h1 {
     color: white;
 }
 
-
-
+button {
+    padding: 2px;
+    background-color: darkslateblue;
+    color: white;
+}
     
 
