@@ -80,12 +80,14 @@ function screenInfo() {
 }
 function makeCookie1() {
     document.cookie = 'name=chocolateChip';
+    console.log(document.cookie);
 }
 function makeCookie2() {
     document.cookie = 'type=delicious';
+    console.log(document.cookie);
 }
 function cookieJar() {
-    cookieString = document.cookie;
+    cookieString = decodeURIComponent(document.cookie);
     const cookieDiv = document.createElement('div');
     cookieDiv.innerText = cookieString;
     document.body.appendChild(cookieDiv);
