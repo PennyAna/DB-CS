@@ -79,7 +79,7 @@ function applyFilter(e) {
     else if (e.currentTarget.id  == "allFilter") {
         filteredTodos = allTodos;
     }
-    filteredTodos.foreach(todo => {
+    filteredTodos.forEach(todo => {
         const el = createTodoElement(todo)
         addTodoList(el);
     })
