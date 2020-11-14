@@ -88,15 +88,6 @@ function cookieJar() {
     document.cookie = 'Healer=Sam';
     document.cookie = 'RingBearer=Frodo';
     const cookieDiv = document.createElement('div');
-    const cookies = document.cookie.split("; ");
-    console.log(document.cookie);
-    console.log(cookies);
-    const cookieString = "";
-    for (crumb of cookies) {
-        const [key, value] = crumb.split("=");
-       cookieString.concat(`The value of ${key} is ${value}`)
-        }
-    console.log(cookieString);
-    cookieDiv.innerText = cookieString;
+    cookieDiv.innerText = document.cookie;
     document.body.appendChild(cookieDiv);
 }
