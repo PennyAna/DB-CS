@@ -94,10 +94,6 @@ function cookieJar() {
             const [key, value] = crumb.split("=");
             (`The value of ${key} is ${value}`);};
     }
-    const cookieString = "";
-    for (crumb of cookieResults) {
-        cookieString.append(crumb);
-    }
-    cookieDiv.innerText = cookieString;
+    cookieDiv.innerText = `Cookies: ${cookieResults}`;
     document.body.appendChild(cookieDiv);
 }
