@@ -47,9 +47,10 @@ function browseInfo() {
             const [key, value] = screen.split("=");
             (`The value of ${key} is ${value}`);
         };
-    locationDiv.innerText = locationResults;
-        document.body.appendChild(locationDiv);
     }
+    console.log(locationResults);
+    locationDiv.innerText = locationResults.value;
+    document.body.appendChild(locationDiv);
 } 
 function screenInfo() {
     const screenHeight = window.screen.height;
@@ -66,12 +67,13 @@ function screenInfo() {
         winColor: winColor
         };
     const screenResults = function () {
-        for (screen of screenResults) {
+        for (screen of screenInfo) {
             const [key, value] = screen.split("=");
             (`The value of ${key} is ${value}`);
         };
     }
-    screenDiv.innerText = screenResults;
+    console.log(screenResults);
+    screenDiv.innerText = screenResults.value;
     document.body.appendChild(screenDiv);
 }
 
@@ -94,6 +96,7 @@ function cookieJar() {
             const [key, value] = crumb.split("=");
             (`The value of ${key} is ${value}`);};
     }
-    cookieDiv.innerText = `Cookies: ${cookieResults}`;
+    console.log(cookieResults);
+    cookieDiv.innerText = cookieResults.value;
     document.body.appendChild(cookieDiv);
 }
