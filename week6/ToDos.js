@@ -1,4 +1,4 @@
-//import utils from "./utilities.js";
+import utils from "./utilities.js";
 import ls from "./ls.js";
 
 //from instructor video
@@ -74,7 +74,7 @@ function applyFilter(e) {
     let filteredTodos = [];
     const allTodos = ls.getTodoList();
     if(e.currentTarget.id == "activeFilter") {
-        filteredTodos = utilities.activeFilter(allTodos);   
+        filteredTodos = utils.activeFilter(allTodos);   
     }
     else if (e.currentTarget.id  == "allFilter") {
         filteredTodos = allTodos;
