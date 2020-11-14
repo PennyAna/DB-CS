@@ -6,13 +6,13 @@ window.onload = function(){
     document.querySelector("#cookieBtn").addEventListener('click', cookieJar);
 }
 function dialogs() {
-window.alert("I'm an Alert! Fear Me!");
-const fearBool = String(window.confirm("Did you fear that alert?"));
-const fearLevel = String(window.prompt("Using a scale of 1-10, how much did you fear the alert?"));
-const fearDiv = document.createElement('div');
-const fearResults = fearBool.concat(fearLevel);
-fearDiv.innerHTML = fearResults;
-document.body.appendChild(fearDiv);
+    window.alert("I'm an Alert! Fear Me!");
+    const fearBool = String(window.confirm("Did you fear that alert?"));
+    const fearLevel = String(window.prompt("Using a scale of 1-10, how much did you fear the alert?"));
+    const fearDiv = document.createElement('div');
+    const fearResults = fearBool.concat(fearLevel);
+    fearDiv.innerHTML = fearResults;
+    document.body.appendChild(fearDiv);
 }
 function browseInfo() {
     const browsOs = window.navigator.userAgent;
@@ -27,10 +27,10 @@ function browseInfo() {
     const hash = window.location.hash;
     const origin = window.location.origin;
     const wholeUrl = window.location.toString();
-
+    const locationDiv = document.createElement('div');
     const locationInfo = {
-        browsOs: browsOs, 
-        url: url, 
+        browsOS: browsOs, 
+        URL: url, 
         fullUrl: fullUrl, 
         protocol: protocol, 
         host: host, 
@@ -42,11 +42,10 @@ function browseInfo() {
         origin: origin, 
         wholeUrl: wholeUrl
     };
-    const locationDiv = document.createElement('div');
     locationDiv.innerText = function () {
         for (location of locationInfo) {
             const [key, value] = screen.split("=");
-            locationDiv.innerText = "The value of ${key} is ${value}";
+            (`The value of ${key} is ${value}`);
         };
         document.body.appendChild(locationDiv);
     }
@@ -73,17 +72,19 @@ function screenInfo() {
     };
     document.body.appendChild(screenDiv);
 }
-if (document.onload()){
-document.cookie = 'Wizard=Gandalf';
-document.cookie = 'Ranger=Aragorn';
-document.cookie = 'Druid=Legolas';
-document.cookie = 'Fighter=Gimli';
-document.cookie = 'Rogue1=Merry';
-document.cookie = 'Rogue2=Pippin';
-document.cookie = 'Healer=Sam';
-document.cookie = 'RingBearer=Frodo';}
+
 
 function cookieJar() {
+    if (document.onload()){
+        document.cookie = 'Wizard=Gandalf';
+        document.cookie = 'Ranger=Aragorn';
+        document.cookie = 'Druid=Legolas';
+        document.cookie = 'Fighter=Gimli';
+        document.cookie = 'Rogue1=Merry';
+        document.cookie = 'Rogue2=Pippin';
+        document.cookie = 'Healer=Sam';
+        document.cookie = 'RingBearer=Frodo';
+    };
     const cookieDiv = document.createElement('div');
     const cookies = document.cookie.split("; ");
     cookieDiv.innerHTML = function () { 
