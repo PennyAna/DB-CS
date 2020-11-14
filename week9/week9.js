@@ -89,11 +89,16 @@ function cookieJar() {
     };
     const cookieDiv = document.createElement('div');
     const cookieResults = function () { 
-        const cookies = document.cookie.split("; ");
+    const cookies = document.cookie.split("; ");
         for (crumb of cookies) {
         const [key, value] = crumb.split("=");
         (`The value of ${key} is ${value}`);};
     }
-    cookieDiv.innerText = cookieResults; 
+    const cookieString = "";
+    cookieDiv.innerText = function () { 
+        for (crumb of cookieResults) {
+            cookieString.append(crumb);
+        }
+    }
     document.body.appendChild(cookieDiv);
 }
