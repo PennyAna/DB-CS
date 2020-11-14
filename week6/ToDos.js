@@ -74,7 +74,7 @@ function applyFilter(e) {
     let filteredTodos = [];
     const allTodos = ls.getTodoList();
     if(e.currentTarget.id == "activeFilter") {
-        filteredTodos = utils.activeFilter(allTodos);   
+        filteredTodos = utilities.activeFilter(allTodos);   
     }
     else if (e.currentTarget.id  == "allFilter") {
         filteredTodos = allTodos;
