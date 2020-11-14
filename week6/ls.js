@@ -1,5 +1,5 @@
 export default {
-    saveTodo, getTodoList, deleteTodo, completeTask
+    saveTodo, getTodoList, deleteTodo
 }
 
 function saveTodo(todo) {
