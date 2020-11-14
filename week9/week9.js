@@ -91,12 +91,12 @@ function cookieJar() {
     const cookies = document.cookie.split("; ");
     console.log(document.cookie);
     console.log(cookies);
-    const cookieResults = new Array(function () {
-        for (crumb of cookies) {
-            const [key, value] = crumb.split("=");
-            (`The value of ${key} is ${value}`);};
-    })
-    console.log(cookieResults);
-    cookieDiv.innerText = cookieResults;
+    const cookieString = "";
+    for (crumb of cookies) {
+        const [key, value] = crumb.split("=");
+       cookieString.append((`The value of ${key} is ${value}`))
+        }
+    console.log(cookieString);
+    cookieDiv.innerText = cookieString;
     document.body.appendChild(cookieDiv);
 }
