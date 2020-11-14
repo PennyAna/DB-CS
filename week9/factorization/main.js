@@ -11,7 +11,7 @@ function factorize(event) {
     const number = Number(form.number.value);
     document.getElementById('output').innerText = factorsOf(number);
 }
-functions factorsOf(n) {
+function factorsOf(n) {
     if (Number.isNaN(Number(n))) {
         throw new RangeError('Argument Error: Value must be an integer');
     }
