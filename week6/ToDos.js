@@ -3,6 +3,9 @@ import ls from "./ls.js";
 
 //from instructor video
 document.querySelector('#addBtn').onclick = newTodo;
+document.querySelector("#allFilter").onclick = applyFilter;
+document.querySelector("#doneFilter").onclick = applyFilter;
+document.querySelector("#activeFilter").onclick = applyFilter;
 
 function loadTodos() {
     const todoList = ls.getTodoList();
@@ -66,11 +69,6 @@ function deleteTodo(e) {
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
 }
-
-document.querySelector("allFilter").onclick = applyFilter;
-document.querySelector("doneFilter").onclick = applyFilter;
-document.querySelector("activeFilter").onclick = applyFilter;
-
 function applyFilter() {
     document.querySelector('#todos').innerHTML='';
     let filteredTodos = [];
