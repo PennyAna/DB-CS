@@ -91,11 +91,11 @@ function cookieJar() {
     const cookies = document.cookie.split("; ");
     console.log(document.cookie);
     console.log(cookies);
-    const cookieResults = function () {
+    const cookieResults = new Array(function () {
         for (crumb of cookies) {
             const [key, value] = crumb.split("=");
             (`The value of ${key} is ${value}`);};
-    }
+    })
     console.log(cookieResults);
     cookieDiv.innerText = cookieResults;
     document.body.appendChild(cookieDiv);
