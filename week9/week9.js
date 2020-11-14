@@ -42,11 +42,12 @@ function browseInfo() {
         origin: origin, 
         wholeUrl: wholeUrl
     };
-    locationDiv.innerText = function () {
+    const locationResults = function () {
         for (location of locationInfo) {
             const [key, value] = screen.split("=");
             (`The value of ${key} is ${value}`);
         };
+    locationDiv.innerText = locationResults;
         document.body.appendChild(locationDiv);
     }
 } 
@@ -64,12 +65,12 @@ function screenInfo() {
         availableHeight: availableHeight, 
         winColor: winColor
         };
-    const screenResults = String(function () {
+    const screenResults = function () {
         for (screen of screenResults) {
             const [key, value] = screen.split("=");
             (`The value of ${key} is ${value}`);
         };
-    })
+    }
     screenDiv.innerText = screenResults;
     document.body.appendChild(screenDiv);
 }
@@ -87,12 +88,12 @@ function cookieJar() {
         window.document.cookie = 'RingBearer=Frodo';
     };
     const cookieDiv = document.createElement('div');
-    const cookieResults = String(function () { 
+    const cookieResults = function () { 
         const cookies = document.cookie.split("; ");
         for (crumb of cookies) {
         const [key, value] = crumb.split("=");
         (`The value of ${key} is ${value}`);};
-    })
+    }
     cookieDiv.innerText = cookieResults; 
     document.body.appendChild(cookieDiv);
 }
