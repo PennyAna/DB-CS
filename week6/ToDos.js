@@ -71,7 +71,7 @@ document.querySelector("allFilter").onclick = applyFilter;
 document.querySelector("doneFilter").onclick = applyFilter;
 document.querySelector("activeFilter").onclick = applyFilter;
 
-function applyFilter {
+function applyFilter() {
     document.querySelector('#todos').innerHTML='';
     let filteredTodos = [];
     const allTodos = ls.getTodoListList();
