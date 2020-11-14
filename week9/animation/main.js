@@ -9,4 +9,7 @@ const squareElementTwo = document.getElementById('squareTwo');
 let angleTwo = 0;
 function rotate() {
     angleTwo = (angleTwo + 2) % 360;
-window.requestAnimationFrame(rotate); }
+    squareElementOne.style.transform = `rotate(${angleOne}deg)`
+    window.requestAnimationFrame(rotate);
+}
+const id = requestAnimationFrame(rotate);
