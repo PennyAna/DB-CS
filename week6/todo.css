@@ -62,13 +62,13 @@ h1 {
     position: relative;
     background-color: violet;
     color: white;
-    float: left;
+    float: right;
 }
 
 .todo-delete-btn {
     position: relative;
     padding: 2px;
-    float: left;
+    float: right;
 }
 
 button {
