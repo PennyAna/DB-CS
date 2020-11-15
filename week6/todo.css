@@ -11,27 +11,30 @@ h1 {
     border: 10px purple solid;
     align-content: center;
     margin: 20px;
-    padding: 20px;
+    padding: 0px;
     overflow: auto;
     background-color: #EBBAB9;
+    position: relative;
 }
 .todos-wrapper {
     background-color: paleturquoise;
     color: indigo;
-    width: 100%;
-    position: fixed;
-    bottom: 20px;
+    width: 350px;
+    position: absolute;
+    bottom: 25px;
+    border-top: 10px purple solid;
 }
 #todos {
     background-color: #EBBAB9;
     color: indigo;
+    
 }
 .add-todo-wrapper {
     background-color: palegreen;
     color: indigo;
-    width: 100%;
-    position.fixed;
-    bottom: 10px;
+    width: 350px;
+    position: absolute;
+    bottom: 0px;
 }
 #todoInput {
     color: indigo;
@@ -45,17 +48,18 @@ h1 {
     background-color: palevioletred;
     color: white;
 }
-.todo {
-
+.completeBtn {
+    padding: 2px;
+    float: left;
 }
 .todoContent {
     background-color: violet;
     color: white;
+    float: left;
 }
 .todo-delete-btn {
     padding: 2px;
-    background-color: darkslateblue;
-    color: white;
+    float: left;
 }
 
 button {
