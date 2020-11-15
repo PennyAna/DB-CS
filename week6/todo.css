@@ -53,23 +53,25 @@ h1 {
 #todoDiv {
     background-color: palevioletred;
     color: white;
+    text-align: center;
+    width: 75%;
 }
 .completeBtn {
     position: relative;
     padding: 2px;
-    float: left;
+    display: inline-block;
 }
 .todoContent {
     position: relative;
     background-color: violet;
     color: white;
-    float: right;
+    display: inline-block;
 }
 
 .todo-delete-btn {
     position: relative;
     padding: 2px;
-    float: right;
+    display: inline-block;
 }
 
 button {
