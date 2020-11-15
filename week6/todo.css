@@ -18,6 +18,9 @@ h1 {
 .todos-wrapper {
     background-color: paleturquoise;
     color: indigo;
+    width: 100%;
+    position: fixed;
+    bottom: 20px;
 }
 #todos {
     background-color: #EBBAB9;
@@ -26,6 +29,9 @@ h1 {
 .add-todo-wrapper {
     background-color: palegreen;
     color: indigo;
+    width: 100%;
+    position.fixed;
+    bottom: 10px;
 }
 #todoInput {
     color: indigo;
