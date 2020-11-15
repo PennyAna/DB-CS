@@ -31,7 +31,7 @@ function createTodo() {
 }
 //for rewrite to complete todo creation
 function createTodoTrue(id) {
-    const input = id.input;
+    const input = id;
     const newTodo = { id: Date.now(), content: input.value, completed: true};
     input.value = '';
     ls.deleteTodo(id);
