@@ -13,6 +13,7 @@ h1 {
     margin: 20px;
     padding: 20px;
     overflow: auto;
+    background-color: palegoldenrod;
 }
 .todos-wrapper {
     background-color: paleturquoise;
