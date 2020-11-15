@@ -15,6 +15,7 @@ h1 {
     overflow: auto;
     background-color: #EBBAB9;
     position: relative;
+    text-align: left;
 }
 .todos-wrapper {
     background-color:#EBBAB9;
