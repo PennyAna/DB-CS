@@ -20,7 +20,7 @@ h1 {
     color: indigo;
 }
 #todos {
-    background-color: palegoldenrod;
+    background-color: rgb(235, 231, 193);
     color: indigo;
 }
 .add-todo-wrapper {
