@@ -3,31 +3,31 @@ body {
     text-align: center;
 }
 h1 {
-
+    color: purple;
 }
 #container {
     width: 350px; 
     height: 450px;
-    border: 5px purple solid;
+    border: 10px purple solid;
     align-content: center;
     margin: 20px;
     padding: 20px;
     overflow: auto;
 }
 .todos-wrapper {
-    background-color: blue;
-    color: white;
+    background-color: paleturquoise;
+    color: indigo;
 }
 #todos {
-    background-color: green;
-    color: white;
+    background-color: palegoldenrod;
+    color: indigo;
 }
 .add-todo-wrapper {
-    background-color: orange;
-    color: white;
+    background-color: palegreen;
+    color: indigo;
 }
 #todoInput {
-
+    color: indigo;
 }
 #addBtn {
     padding: 2px;
