@@ -5,8 +5,7 @@ import ls from "./ls.js";
 document.querySelector('#addBtn').onclick = newTodo;
 document.querySelector('#allFilter').onclick = applyFilter;
 document.querySelector('#doneFilter').onclick = applyFilter;
-document.querySelector('#activeFilter').onclick = applyFilter;
-document.querySelector('#complete-btn').onclick = completeTask;
+document.querySelector('#activeFilter').onclick = applyFilter;7
 
 function loadTodos() {
     const todoList = ls.getTodoList();
@@ -23,10 +22,19 @@ function newTodo() {
     ls.saveTodo(todo);
 }
 
+//for general todo creation
 function createTodo() {
     const input = document.querySelector('#todoInput');
     const newTodo = { id: Date.now(), content: input.value, completed: false};
     input.value = '';
+    return newTodo;
+}
+//for rewrite to complete todo creation
+function createTodoTrue(id) {
+    const input = document.querySelector('#todoInput');
+    const newTodo = { id: Date.now(), content: input.value, completed: true};
+    input.value = '';
+    ls.deleteTodo(id);
     return newTodo;
 }
 function createTodoElement(todo) {
@@ -35,7 +43,11 @@ function createTodoElement(todo) {
     todoDiv.classList.add('todo');
     //complete btn
     const completeBtn = document.createElement('button');
+    completeBtn.setAttribute('data-id', todo.id);
     completeBtn.classList.add('complete-btn');
+    if (todo.completed) {
+        completeBtn.innerText = "x";
+    }
     completeBtn.onclick = completeTask;
     //todo content
     const todoContent = document.createElement('div');
@@ -80,6 +92,9 @@ function applyFilter(e) {
         addTodoList(el);
     })
 }
-function completeTask() {
-console.log("complete me!");
+function completeTask(e) {
+    const btn = e.currentTarget;
+    ls.saveTodo(createTodoTrue(btn.getAttribute('data-id')));
+    document.querySelector('#todos').innerHTML = '';
+    loadTodos();
 }

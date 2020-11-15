@@ -9,7 +9,8 @@ function saveTodo(todo) {
 }
 function deleteTodo(id) {
     const todoList = getTodoList();
-    const updatedTodos = todoList.filter(todo => todo.id != id);localStorage.setItem('todoList', JSON.stringify(updatedTodos));
+    const updatedTodos = todoList.filter(todo => todo.id != id);
+    localStorage.setItem('todoList', JSON.stringify(updatedTodos));
 }
 function getTodoList(){
     const todoListString = localStorage.getItem('todoList');
