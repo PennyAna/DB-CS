@@ -54,15 +54,19 @@ h1 {
     color: white;
 }
 .completeBtn {
+    position: absolute;
     padding: 2px;
     float: left;
 }
 .todoContent {
+    position: absolute;
     background-color: violet;
     color: white;
     float: left;
 }
+
 .todo-delete-btn {
+    position: absolute;
     padding: 2px;
     float: left;
 }
