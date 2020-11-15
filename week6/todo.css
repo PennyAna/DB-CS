@@ -17,6 +17,11 @@ h1 {
     position: relative;
 }
 .todos-wrapper {
+    background-color:#EBBAB9;
+    color: indigo;
+    width: 350px;
+}
+.todo-filters {
     background-color: paleturquoise;
     color: indigo;
     width: 350px;
