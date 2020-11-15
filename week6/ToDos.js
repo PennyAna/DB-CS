@@ -89,7 +89,7 @@ function applyFilter(e) {
     }
     filteredTodos.forEach(todo => {
         const el = createTodoElement(todo)
-        addTodoList(el);
+        addToList(el);
     })
 }
 function completeTask(e) {
