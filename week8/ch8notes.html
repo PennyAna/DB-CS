@@ -9,6 +9,42 @@
     <h1><a href="../index.html">WDD 330 portfolio</a></h1>
     <header>JavaScript:Novice to Ninja Ch. 8 Notes</header>
     <div id="notes9">
-        <p>Forms
+        <p>Forms<br>
+            tradit. on form submit, sent to server, info processed w/back end lang like PHP/Ruby
+            sed more common now to process form info on front end w/JS before sent to server
+        </p>
+        <p>
+            Searching Example<br>
+            <form name='search' action='/search'>
+            <input name="searchInput">
+            <button tyoe="submit">Search</button>
+            </form>
+            <script src="wk8.js"></script>
+        </p>
+        <p>
+            Form Object
+            action attrib URL submitted to for server-side process, also input name attrib used to access info inside
+            document.forms returns HTML collection of all forms in doc in order of appearance, 
+            so one form: 
+            const form = document.forms[0]; = 
+            document.getElementsByTagname('form')[0]; = document.forms.search;
+            last ex can mix up if form had same name as props or methods of the obj, avoid by using document.forms['search']; (also required if name attrib has invalid chars)
+            form obj has method: elements, returns HTML collection of els in form 
+            const [input, button] = form.elements;
+            et access form controls using name attribs as if prop of form obj, const input = form.searchInput;
+            or const input = form['searchInput'];
+        </p>
+        <p>
+            Form Properties and methods<br>
+            form.submit() - submitting form using this method won't trigger form submit event
+            form.reset() - reset to init vals 
+            sed button type:reset or submit work w/o extra scripting
+            reset btns considered poor for UX
+            form.action prop used to set action attrib of form so sent to diff URL to be processed on server
+        </p>
+        <p>
+            Form Events
+        </p>
+        
 </body>
 </html>
