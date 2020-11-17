@@ -14,14 +14,6 @@
             sed more common now to process form info on front end w/JS before sent to server
         </p>
         <p>
-            Searching Example<br>
-            <form name='search' action='/search'>
-            <input name="searchInput">
-            <button tyoe="submit">Search</button>
-            </form>
-            <script src="wk8.js"></script>
-        </p>
-        <p>
             Form Object
             action attrib URL submitted to for server-side process, also input name attrib used to access info inside
             document.forms returns HTML collection of all forms in doc in order of appearance, 
@@ -43,8 +35,114 @@
             form.action prop used to set action attrib of form so sent to diff URL to be processed on server
         </p>
         <p>
-            Form Events
+            Form Events<br>
+            <ul>
+                <li>focus</li>
+                <li>blur</li>
+                <li>change </li>            
+            </ul>
         </p>
+        <p>Submitting Form<br>
+            use JS to intercept form before sent by adding submit event listener
+            preventDefault() actually stops form being submitted to URL
+        </p>
+        <p>
+            Retrieve & Change Values<br>
+            text input el obj have val prop, use to retrieve text in field, also can use js to change val 
+            placeholder attrib in HTML can also put text in field like ex js (in wk8.js) sed slightly diff behavior b/c text not actual val of input field, won't be submitted as field's val if user leaves blank
+        </p>
+        <p>Form Control<br>
+            <ul>
+                <li>input: text, passwords, checkboxes, radio buttons, file uploads</li>
+                <li>
+                    select: dropdown list of options
+                </li>
+                <li>
+                    textarea: for longer text entry
+                </li>
+                <li>
+                    button: submit/reset forms (or whatever you tell it to do)
+                </li>
+            </ul>
+        </p>
+        <p>New Attributes HTML5<br>
+            input el has new attribs in HTML5
+            autofocus attrib gives focus to an el on pg load
+            = document.forms.her.heroName.focus();
+            placeholder insert val provided in field until user enters txt, helpful hints on how to fill form
+            maxlength attrib limit num chars to be entered in field 
+        </p>
+        <p>Text Input<br>
+            default type input field text
+            type=text isn't required but advisable to make purpose explicit, help w/ maintainence, readability, future-proofing
+            init val can be set in html w/val attrib 
+        </p>
+        <p>Password Input<br>
+            enter passwords or secret info
+            works like text sed characters concealed as entered
+        </p>
+        <p>Checkbox Input<br>
+            true/false options
+            can select 1+
+            all have same name so accessed as HTML collection 
+            ex: form.powers;
+            iterate over collection w/for loop for checked = T 
+            val prop used to set name if T (add val to empty array)
+            more succint ex uses spread operator to turn node list into array, then uses array.filter() to return array w/only T checkboxes, then chain map to end to replace each checkbox w/its val, array returned/stored in hero.powers var: 
+            hero.powers = [...form.powers].filter(box => box.checked).map(box => box.value);
+            also JS can set checkbox to T/F: document.forms.hero.powers[0].checked = true;
+            or use HTMl checked attrib to do same
+        </p>
+        <p>Radio Input<br>
+            type="radio"
+            also true/false sed only one option can be selected
+            same name attrib used to group together (only one radio w/that name can be checked)
+            also HTMl collection of all radio btns in group using name prop: form.category;
+            val of radio btn selected stored in form.category.value 
+            can also us JS to set val = true/false (form.type[2].checked = true;)
+            also checked via checked attrib html
+        </p>
+        <p>Hidden Input<br>
+            type="hidden"
+            not displayed by browser sed have val attrib that can contain info submitted w/form 
+            often used to send info on settings/info that user already provided 
+            sed NOT secret b/c visible in HTMl 
+            val can be changed using JS like others
+        </p>
+        <p>File Input, etc.<br>
+            type="file"
+            used to upload files, most browsers provide btn to allow selection from user file syst
+            new input types in HTML5 like number, tel, color, date, email
+            may show up diff in diff browsers
+            number fields have opt min/max attribs to limit input given, also step attrib specify skip count w/click 
+            most browsers add controls for +/- 
+        </p>
+        <p>Select Dropdowns<br>
+            select 1+ options from list of vals (multiple attrib required if 1+)
+            selected attrib used to set init val in html w/blank opt providing instruct msg on load 
+            name attrib of select used to access in JS as prop of form obj 
+            only 1 selected, return ref to that, or 1+ returns collection w/all selected
+            each selection obj has val prop = value attrib of option tag selected: hero.city = form.city.value;
+            also can use index of opt using selectedIndex prop: form.city.options[form.city.selectedIndex].text;
+            either way, need to account for user picking blank opt in your js  
+        </p>
+        <p>Text Areas<br>
+            used to enter long pieces of text w/multiple lines (comment, blog post)
+            work like other input fields 
+            access w/name attrib, use val prop for text entered 
+            can also change directly (assignment): form.origin.value = "blah blah"
+            init val set in html w/text b/t tags
+        </p>
+        <p>Buttons<br>
+            default btn submit
+            also plain old btn: does not need to be in a form el, no default behavior, creates clickable btn that can have event listener attached
+            also, type menu to combine with menu, menuItem, li tags to create dropdown menu when clicked on (suppt patchy tho)
+        </p>
+        <p>Form Validation<br>
         
+        </p>
+        <p>Disable Submit Btn<br>
+
+        </p>
 </body>
 </html>
