@@ -8,7 +8,7 @@
 <body>
     <h1><a href="../index.html">WDD 330 portfolio</a></h1>
     <header>JavaScript:Novice to Ninja Ch. 8 Notes</header>
-    <div id="notes9">
+    <div id="notes8" class="notes">
         <p>Forms<br>
             tradit. on form submit, sent to server, info processed w/back end lang like PHP/Ruby
             sed more common now to process form info on front end w/JS before sent to server
@@ -139,10 +139,30 @@
             also, type menu to combine with menu, menuItem, li tags to create dropdown menu when clicked on (suppt patchy tho)
         </p>
         <p>Form Validation<br>
-        
+            checks if info entered correctly: 
+            <ul>
+                <li>required field</li>
+                <li>valid email</li>
+                <li>num (not char) entered where required</li>
+                <li>password min # chars</li>
+            </ul>
+            validation both client (using JS) et server sides
+            use both to double check since JS can be modified and bypass valid rules, send arbitrary data to database
+            js valid used to improve US when filling in form w/feedback before submission
+            then more valid on server before saved to database
+            sed js valid ensures more valid data sent to serber, cutting down on http requests required to send form back and forth for correction
+            HTML5 has own validation API (tho lacking full browser suppt), sed error msgs produced can look inconsistent et difficult to style
+            HTML5 API adds relevant attribs to form fields, ex: required
+            implement more custom form validation via JS
+            use preventDefault() method to stop form submission if !valid 
+            improve US more w/instant feedback on form before submission 
+            add event listener to input field that will fire when user (event)s 
+            feedback inserted inside label el w/error class 
+            updated dynamically to reveal added error el
         </p>
         <p>Disable Submit Btn<br>
-
+            to disable submit btn if errors in form, use disabled attrib for input el 
+            can be changed w/js changing .disabled = true or false 
         </p>
 </body>
 </html>

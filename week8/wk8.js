@@ -39,3 +39,33 @@ function makeHero(event) {
     alert(JSON.stringify(hero));
     return hero;
 }
+form.addEventListener('submit', validate, false);
+function validate(event) {
+    const firstLetter = form.heroName.value[0];
+    if(firstLetter.toUpperCase() === 'X') {
+        event.preventDefault();
+        alert('Your name is not allowed to start with X!');
+    }
+}
+const label = form.querySelector('label');
+const error = document.createElement('div');
+error.classList.add('error');
+error.textContent = '! Your name is nto allowed to start with X.';
+function validateInline() {
+    const heroName = this.value.toUpperCase();
+    if (heroName.startsWith('x')) {
+        error.style.display = 'block';
+    }
+    else {
+        error.style.display = 'name';
+    }
+}
+form.heroName.addEventListener('keyup', disableSubmit, false);
+function disableSubmit(event) {
+    if(event.target.value === ''){
+        document.getElementsById('submit').disabled = true;
+    }
+    else {
+        document.getElementById('submit').disabled = false;
+    }
+}

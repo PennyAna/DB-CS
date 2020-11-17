@@ -91,15 +91,9 @@ footer {
 	margin-right: 150px;
 	margin-left: 75px;
 }
-#notes9 {
+.notes {
 	max-width: 75%;
 	max-height: auto;
 	float: center;
 	margin: 50px;
-}
-#notes14 {
-	max-width: 75%;
-	max-height: auto;
-	float: center;
-	margin:50px;
 }

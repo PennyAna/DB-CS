@@ -8,7 +8,79 @@
 <body>
     <h1><a href="../index.html">WDD 330 portfolio</a></h1>
     <header>JavaScript:Novice to Ninja Ch. 11 Notes</header>
-    <div id="notes9">
-        <p>
+    <div id="notes9" class="notes">
+        <p>Function Properties & Methods<br>
+            in JS functiosn first-class obj, can be passed around like other vals
+            can have own props et methods, accept other functions as params, be returned by other functions
+            all have length prop returning num params 
+            call() used to set val of this inside function to an obj provided as first arg , if funct called requires any params, provided as args post 1st arg (always will be this)
+            using call() w/o obj ref'd as this, need null as first arg 
+            apply() works same way, sed args of funct provided as array, even if only 1 arg, useful if data is already array (not actually needed ES6 w/spread operator to split array of vals into sep params)
+            can add own props
+        </p>
+        <p>Memoization<br>
+            results caching (memoization)
+            if function takes time to compute return val, save result in cache prop, if same arg used later, return val from cache instead or recomputing
+            obj.cache[result]
+        </p>
+        <p>Immediately Invoked Function Expressions<br>
+            IIFE (iffy)
+            anon function invoked when defined
+            parentheses at end of function definition, also put function declaration inside another parentheses to make it an expression 
+            ex: (function(){const temp = 'World';console.log(`Hello ${temp}`);})();
+            useful to perform task et keep vars wrapped w/in scope, global namespace not polluted w/unecessary var names 
+            can't remove var from scope once declared
+            temp vars needed esp. to keep var names avail for other code (like external js library)
+            put code into IIFE, only avail while IIFE invoked, then disappears
+            IIFE used to set up init code not needed later
+            sed can be achieved by placing code inside block so block scope maintained 
+            placing 'use strict' at begin/file enforces strict mode on all js in file
+            avoid: use strict mode placing all code inside IIFE ex: (function() {
+                'use strict';
+                all code that needs to be in strict mode
+            })();
+            IIFE enclose in private scope, ita code +/- separately
+            useful to sep parts/program into discrete sections, esp. for testing purposes
+            again, ES6 placed diff parts of code into blocks
+            et module pattern
+            function that calls/defines/redefines self: assign anon funct to var w/same name as function 
+            ex: function party() {
+                console.log('Wow this is amazing!');
+                party = function(){
+                    console.log('Been there, got the t-shirt');
+                }
+            }
+            first msg logged then party redefined to new msg
+            assigned to new var, var maintain original definition, not rewritten b/c original function assigned to var, then w/in function, var w/same name as function assigned to diff function (phew!)
+            if props set on function, lost when function redefines self
+            ex: function party(){
+                console.log('Wow this is amazing!');
+                party = function(){
+                    console.log('Been there, got the t-shirt');
+                }
+            }
+            party.music = 'classical jazz'
+            party() output first msg
+            party.music output undefined b/c function redefined and prop doesn't exist
+            Lazy Definition Pattern, often used when init code required first time invoked, then do something else next invokation 
+        </p>
+        <p>Init-Time Branching<br>
+            use w/redefining functions
+            useful to work effectively in browser w/o checking for features every time invoked
+            once invoked, rewritten based on browser capabilities so useful to check function 
+        </p>
+        <p>Recursive Functions<br>
+            invokes self til condition met 
+            useful for iterative processes
+            common use: factorial num calc et Collatz Conjecture: has not been solved: take any positive int, if num even, divide by two, if odd, x3 +1
+            ends up looping at end
+            every pos int create looping sequence
+            use recursion to invoke collatz function until reaches 1 (to avoid recursive looping in function) w/num param w/sequence param ([first param]), second only used when recursive called (count steps)
+            Callbacks<br>
+            functions passed as args et invoked inside function passed to
+        </p>
+        <p>Event-Driven Async<br>
+            
+        </p>
 </body>
 </html>

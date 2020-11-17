@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDD 330 portfolio</title>
     <link rel="stylesheet" href="../style.css"/>
+    <style>
+        .error{
+	background: #f99;
+	border: #900 1px solid;
+	display: none;
+    }
+    </style>
 </head>
 <body>
     <h1><a href="../index.html">WDD 330 portfolio</a></h1>
@@ -26,7 +33,7 @@
             <h4>Hero Form</h4>
             <form id="hero" action="">
                 <label for="heroName">Name:
-                <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength=32></label>
+                <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength="32" required></label>
                 <label for="realName">Real Name:
                 <input type="password" name="realName" id="realName"></label>
                 <p>Super Powers:</p>
