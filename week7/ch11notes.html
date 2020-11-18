@@ -80,7 +80,95 @@
             functions passed as args et invoked inside function passed to
         </p>
         <p>Event-Driven Async<br>
-            
+            callbacks great for async 
+            JS single-threaded sed callback can be created/invoked when event happens
+            called JS event loop
+            callback semper waits for current execution stack to complete before invoked
+            increase in use of async JS = more callbacks being used => spaghetti code, messy, confusing, lots of nested blocks
+            (error 1st callback style popularized by Node.js: callbacks have two args, 1st error arg if something wrong, 2nd arg data returned by operation to be used in body of callback)
+            promise: future result of async operation, help simplify process and avoid multiple callbacks
+            Promise created -> calls async operation = pending
+            remains pending while operation takes place, promise is 'unsettled'
+            when complete, 'settled', then resolved (async success) or rejected (async didn't work right, wasn't completed, resulted in error) both return relevant data 
+            create promise using constructor function: takes functin called executor as arg
+            executor inits promise, starts async, accepts two functions as arg, resolve() (called if success), reject() (called if fail)
+            const promise = new Promise( (resolve, reject) => {
+                if (success) {
+                    resolve(value);
+                }
+                else {
+                    reject(error);
+                }
+            });
+            once settled then() used to deal w/outcome 
+            accept two args, 1st fulfillment function called when promise resolved, data returned from resolve() passed along to this function, 2nd arg rejection function receives data returned by reject()
+            promise.then(result => success response)
+            promise.catch(result => fail response)
+            can be chained for more succinct descript 
+            can chain multiple promises to form sequential piece of code, each promise beginning when prev promise settled
+            async added ES2017, functions w/async keyword, write async code like sync
+            use await operator before async
+            wrap return val function val of funct in promise, can be assign to var, next code not executed until promise resolved
+            wrap each step in try block, written in order of processing
+            callbacks used to build more general function
+            can write one function that accepts callback - abstraction (wrapping all logic away inside function)
+            functions returning functions: to use returned, assign to var 
+            use -> place parentheses post var to invoke function within
+            make generic functions with specific info as param 
+            closures - powerful JS feature 
+            function scope destroys any vars when out of scope 
+            to gain access to vars outside function when created et post function invoked: closure: ref to var created inside scope of another function, then kept alive and  kept alive in another part of program
+            key principle: inner function declared inside another has full access to all vars in outer function
+            outer only has access to its var, inner has access to all 
+            returning functions: closure formed when inner funct returned by outer funct maintaining access to any vars in outer, assign var to return val of outer: const closure = outerFunction();
+            closure now points to inner returned (as anon arrow funct) by outer 
+            closure also no has access to both functions' inside vars 
+            closure can also change val of var long after origin function invoked ex: counter funct returning funct that maintains and increments i var 
+            Generators ES6 
+            special functions to produce iterators that maintain state of val 
+            to define: asterisk symbol (*) placed after function declaration: function * generatorFunct() {}
+            calling generator doesn't run any of the function code, returns Generator obj to be used to create iterator implementing next() method returning val every time next() method called
+            use yield keyword used to return val
+            diff b/t yield and return = yield state of val returned remembered for next yield. 
+            assign var to gnerator function w/ args to create generator obj stored in that var, inheriting method next(), used to obtain next val produced by yield commmand
+            also can iterate over generator to invoke multiple times 
+        </p>
+        <p>Functional Programming<br>
+            purely functional langs like Clojure, Scala, Erlang, Haskell (and much stricter to principles of functional programming)
+            JS semper suppt'd this style b/c functions 1st class objs 
+            functional programming paradigm like objected oriented or procedural 
+            JS multi-paradigm lang 
+            use of pure functions: function that adheres to rules: return val should only depend on vals provided as args (not vals from elsewhere in program), no side effects changing vals/data elsewhere in program, making non-destructive data transforms and returning new vals, instead of altering any underlying data, referential transparency, given same args, semper return same result 
+            to follow these rules, need: at least one arg, return val
+            pure functs make code more concise and predictable, easy to test, return vals can be cached, reduces bugs w/ surprise dependencies 
+            ex: function reverse(string) {
+                return string.split('').reverse().join('');
+            }
+            using const to declare vars helps avoid destructive data transforms
+            use pure functions as building blocks of program, performing series of operatiosn w/o changing data state, each funct forms abstraction to perform single task, encaps details of implementation inside body, ita program becomes sequence of expressions based on the return val of pure functions, emphasis placed on using function composition to combine pure functions together to complete more complex tasks 
+            pure functions more flexible, not tightly coupled
+            make code more modular 
+        </p>
+        <p>Higher Order Functions<br>
+            functs accepting another funct as arg or returning another funct as result or both 
+            closures used for higher orders b/c create generic funct by creating closure round funct args to keep alive in return funct, use to build more specific functs w/diff args 
+        </p>
+        <p>Currying<br>
+            process involving partial application of functs (named after Haskell Curry, logician)
+            funct curried when not all args supplied to funct so returns another funct retaining provided args, expects omitted args when original funct called. only final result when all expected args provided 
+            relies on higher-orders returning partially applied functs
+            All curried functs are higher-orders sed not all higher-orders curried (square/rectangle situ)
+            turns single funct into series of functs 
+            useful if constantly calling funct w/same arg 
+            can use curry funct to take any funct and allow partial application
+            ex: function curry(func, ...oldArgs) {
+                return function(...newArts) {
+                    const allArgs = [...oldArgs,...newArgs];
+                    return func(...allArgs);
+                }
+            }
+            const divider = (x,y) => x/y;
+            const reciprocal = curry(divider, 1); creates new function w/divider funct w/1st arg set 1 
         </p>
 </body>
 </html>
