@@ -9,6 +9,211 @@
     <h1><a href="../index.html">WDD 330 portfolio</a></h1>
     <header>JavaScript:Novice to Ninja Ch. 12 Notes</header>
     <div id="notes9" class="notes">
+        <p>OOP<br>
+             point is encapsulation, user does not know (nor needs to know) how it works in order to use it
+             all workings are internal
+            polymorphism: same process used for diff obj 
+            in OOP, var objs share same method, can override shared with more specific
+            inheritance: taking features of obj et adding new features, in OOP, taking existing obj et inherit all props and methods et improve w/new 
+        </p>
         <p>
+            Java et Ruby (other OOP langs) class-based: use class to define blueprint for obj, objs created as instance of class, inheriting props et methods 
+            JS had no class before ES6 ;D 
+            used actual objs as blueprint for more: prototype-based lang 
+            even w/class suppt now, still using prototypal inheritance model in bckgrnd
+        </p>
+        <p>
+            constructor obj (w/anon funct et this et sub-anons) or obj literal notation for creation
+            const newObj = new obj(); (do not need parentheses w/o args)
+            sed args can alter obj creation as needed
+            JS built-in constructor functs: Object, Array, Function to create instead of literals 
+            (even if obj made using literal syntax or Object constructor function, literal still considered instance of Object constructor)
+            same/Array sed Array constructor functs show strange behavior w/args supplied so easier to use literals to create Arrays
+        </p>
+        <p>
+            pre ES6, constructor functs used to achieve class-like behavior 
+            syntactic sugar: new class declaration syntax does same thing but looks more similar to class-based programming lang:
+            class Obj {
+                constructor(something=something) {
+                    this.something = something;
+                }
+                lookImaMethod() {
+                    return something 
+                }
+            }
+            by convention, name of constructor functs or class declarations capitalized (like convention in class-based langs)
+            ES6 declarations preferred b/c succinct, easier to read, all code implicitly in strict mode (don't need to 'use strict') et avoids constructor pitfalls: w/o new operator, class throws error; same w/constructor harder to track(no error)
+        </p>
+        <p>
+            all Objects have constructor prop: returns origin constructor function 
+            ex: [Function: Object]
+            use this prop to instant copy of obj w/o using actual constructor funct or class declaration (esp if name of origin constructor unknown)
+            static keyword creates static method (sometimes class methods in other langs): called by class directly rather than by instances of class
+            instances cannot call statics   
+        </p>
+        <p>
+            JS uses prototypal inheritance model 
+            every class has prototype prop shared by every instance 
+            any props/methods of class' prototype accessed by every obj instant by class 
+            const newObj = new Obj(something)
+            Obj {name: 'something'}
+            when adding methods/props to class post-creation, still do this using prototype prop of class (useful if don't have access to clas declaration)
+            Obj.prototype; Obj {}
+            Obj.prototype.newProp = 'something'
+            OR
+            Obj.prototype.newMethod = function() {
+                return something;
+            }
+            sed new Obj instances now inherit these as well
+            find out prototype: constructor functs prototype prop: instance.constructor.prototype;
+            Obj { method: [Function], prop: something }
+            Object.getPrototypeOf(instance);
+            many JS engines also suppt non-standard _proto_ prop (dunder proto (double underscore proto))
+            instance._proto_, formalized in ES6 b/c already implemented in most browsers/JS libraries sed not official specs, recommend getPrototypeOf() instead, 
+            also used to set prototype of obj by assign sed deprecated for setPrototypeOf()
+            also isPrototypeOf() returns bool if prototype of an instance: Object.prototype.isPrototypeOf(instance) true 
+        </p>
+        <p>
+            obj has prop et access to all, if inherited from class declaration belongs to obj; if inherited from prototype, does not belong to obj but can use
+            use hasOwnProperty() method to see which belong to obj or prototype
+            prototype props shared w/every instance of class et w/same val et this prop only in mem in one place: in the prototype 
+            prototype live so any new props/methods added, all instances inherit statim, even if already created before addition, same w/new vals for props 
+            not possible to overwrite prototype by assign new obj literal if class declaration used 
+            sed can do it w/constructor functs used sed prob if redefine prototype accidentally (existing instances retain props/methods of old sed not receive any new added to redefined): another reason to use class decs
+            instance can overwrite any prop/methods inherited by assign new val then they are 'property' of instance not prototype
+            owned props precedent over prototype prop in methods (JS engine follows chain until finds prop/method)
+        </p>
+        <p>
+            Use of prototype: 
+            add new props/methods post class dec
+            define props remaining same for every instance 
+            methods usually same for all instances so usually fine to add to prototype 
+            careful, default vals set by prototype are shallow, any changes to array or obj made by instance seen in prototype and shared to all others
+            ita: never use arrays/objs as default val in prototype
+            mixin can be used to add multiple props at same time
+        </p>
+        <p>
+            public vs private methods: 
+            default: methods public in JS
+            so can be queried directly/changed by assign (dynamic lang and all)
+            if objs public-facing-avoid-too much access by users
+            sed var scope keeps some props/methods private in class dec, preventing access/change(ergo: use getters/setters)
+            private props now managed in controlled way/screening any data made by user/external 
+        </p>
+        <p>
+            Prototype chain: 
+            prototype of prototype empty obj literal (actually instance of built-in Object() constructor funct)
+            beyond that: null 
+            instance-->instanceObject-->objectPrototype-->prototype-->Object constructor function
+        </p>
+        <p>
+            prototype of Obj constructor funct has methods inherited by all objs sed prototype appears empty b/c all methods not enumerable (will not show up when a for-in loop used thru objs props/methods)
+            propertyIsEnumerable() to check (all props/methods created by assign enumerable)
+            ex: toString() not enum 
+            make all methods non enum (yours are safe) and any user defined methods enum (easy to find)
+        </p>
+        <p>
+            inheritance w/extends in class dec to inherit from another class 
+            in child class dec keyword super refers to parent class and used to access any props/methods of parent
+            polymorphism allows diff objs to have same method et implement diff
+            ex: toString()
+        </p>
+        <p>
+            can add more methods to built-ins (Number, String, Array) = monkeypatching (frowned on in JS) (Ruby likes it)
+            Arrays lack first(), last(), delete() (js delete leaves null in place of removed)
+            useful monkeypatching: add suppt for specs methods not natively supptd in browsers (like most IEs)
+            monkeypatching can lead to bad behavior, at least avoid w/built-in obj constructor prototypes 
+            if you do: check for built-ins first then mimic that functionality
+            use extends to subclass built class/create own
+        </p>
+        <p>
+            each prop has attribs providing info de prop
+            stored in prop descriptor=obj containing vals of each attrib
+            have: 
+            value: undefined by default
+            writable: bool, false by default
+            enumerable: bool, false by default
+            configurable: bool, can delete/change, false by default 
+            possible to set prop attribs by using prop descriptor 
+            cannot set attribs added props of obj (set to true when obj made)
+            Object.getOwnPropertyDescriptor()
+            Object.defineProperty() used to add prop to obj w/o assign 
+            more control when adding new props b/c attrib can be set-first arg is obj to add the property to, next prop descriptor w/attribs to set, any left out default 
+            obj property descriptor can have get()/set() methods instead of val attrib
+            all objs one or other never both 
+            can be used to control how prop is set using assign and val returned when prop queried, useful if prop relies on val of other prop 
+            can also change what get() method returns despite val set by assign 
+            use sparingly
+        </p>
+        <p>
+            can avoid classes just creating new obj based on other obj as blueprint 
+            create method from Object constructor funct used to Object.create() new exact copy of obj as arg
+            can add props as second arg 
+            origin obj is live b/c prototype 
+            also superclass 
+            add init method to init props 
+            SuperObject.init = function(something, alsoSomething) {
+                this.something = something;
+                this.alsoSomething = alsoSomething;
+                this.init = undefined; (removes init function for only one call)
+                return this;
+            }
+            can chain: const instance = Object.create(SuperObject).init(something, something);
+            objects from objects creates a prototype chain
+            sed instanceOf will not work here 
+        </p>
+        <p>Mixins<br>
+            add props/methods of one obj to another w/o using inheritance 
+            mix basic obj together for more complex
+            basic functionality: Object.assign() method: assign to the obj (first arg) all props from objs as rest of args
+            sed no arrays or nested obj since only shallow copy
+            sed to avoid: create own mixin() funct to assign all props of obj to another obj w/deep copy
+            every obj inherit this method and can use to augment from other objs
+            function mixin(target,...objects) {
+                for (const object of objects) {   
+                if(typeof object === 'object') {
+                    for (const key of Object.keys(object)) {
+                        if (typeof object[key] === 'object') {
+                        target[key] = Array.isArray(object[key]) ? [] : {};
+                        mixin(target[key],object[key]);
+                        } else {
+                        Object.assign(target,object);  
+                        }
+                    }
+                    }
+                }
+                return target;
+            }
+            can add many props to obj at one time
+            can use to create copy() function (exact,deep)
+            function copy(target) {
+                const object =  Object.create(Object.getPrototypeOf(target));
+                mixin(object,target);
+                return object;
+            }
+            not copied by ref so changes will not affect each other 
+            add modular funct (no chain of inheritance), encapsulate props/methods in obj then add to others w/o chain 
+            diff is whether object IS something or HAS something 
+            each mixin returns val of this 
+            b/c 'this', these methods can be chained for sequence of method calls 
+            common technique w/JS libraries like jQuery/Jest
+            sed makes code difficult to debug
+            if method doesn't have anything important to return, might as well return this so can chain
+            can bind this within scope, important b/c this usually ref's global window obj = undefined 
+            use that = this within funct and use in nested funct instead of this (or self or _this)
+            bind() can set val of this w/in funct while in scope 
+            for-of instead forEach(): does not require nested funct so this remains bound to non-global obj (ES6)
+            Arrow functs (ES6) don't have own this context so remain bound to orig obj making funct call 
+            use them when anon functs required in callbacks 
+        </p>
+        <p>
+            can borrow singleton methods w/o having to take all
+            make ref to funct borrowing (w/o parentheses)
+            const something = object.somethingElse;
+            common in ES5 to borrow methods from arrays like slice(), Es6: Array.from() used to turn array-like obj into array 
+            et spread operator does same  
+        </p>
+
+
 </body>
 </html>
