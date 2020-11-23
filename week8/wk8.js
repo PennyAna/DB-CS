@@ -7,8 +7,8 @@ input.addEventListener('change', () => alert('changed'), false);
 const formBtn = form1["search"];
 formBtn.addEventListener('submit', search, false);
 function search(event) {
-    event.preventDefault();
     alert(`You Searched for : ${input.value}`);
+    event.preventDefault();
 
 }
 input.addEventListener('focus', function(){
