@@ -23,6 +23,7 @@ input.addEventListener('blur', function() {
 }, false);
 
 const form2 = document.getElementById("hero");
+const newHero = document.getElementById("heroDiv");
 form2.addEventListener('submit', makeHero, false);
 function makeHero(event) {
     event.preventDefault();
@@ -39,8 +40,8 @@ function makeHero(event) {
     hero.age = form2.age.value;
     hero.city = form2.city.value;
     hero.origin = form2.origin.value;
-    alert(JSON.stringify(hero));
-    return hero;
+    newHero.innerHTML = JSON.stringify(hero);
+    // return hero;
 }
 form2.addEventListener('submit', validate, false);
 function validate(event) {
