@@ -70,6 +70,6 @@ function disableSubmit(event) {
         document.getElementsById('submit').disabled = true;
     }
     else {
-        document.getElementById('submit').disabled = false;
+        document.getElementsById('submit').disabled = false;
     }
 }
