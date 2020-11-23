@@ -3,7 +3,7 @@ input.value = 'Search Here';
 input.addEventListener('focus', () => alert('focused'), false);
 input.addEventListener('blur', () => alert('blurred'), false);
 input.addEventListener('change', () => alert('changed'), false);
-const form1 = document.form['search'];
+const form1 = document.forms['search'];
 form1.addEventListener('submit', search, false);
 function search(event) {
     event.preventDefault();
@@ -52,7 +52,7 @@ function validate(event) {
 const label = form2.querySelector('label');
 const error = document.createElement('div');
 error.classList.add('error');
-error.textContent = '! Your name is nto allowed to start with X.';
+error.textContent = '! Your name is not allowed to start with X.';
 function validateInline() {
     const heroName = this.value.toUpperCase();
     if (heroName.startsWith('x')) {
