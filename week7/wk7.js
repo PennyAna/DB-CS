@@ -1,4 +1,3 @@
-//fetch example
 const textButton = document.getElementById('number');
 const apiButton = document.getElementById('chuck');
 const outputDiv = document.getElementById('output');
@@ -34,7 +33,6 @@ apiButton.addEventListener('click', () => {
     .catch(error => console.log('There was an error: ', error))
 }, false);
 
-//send example
 const form = document.forms['todo'];
 form.addEventListener('submit', addTask, false);
 function addTask(event) {
