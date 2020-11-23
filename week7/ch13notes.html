@@ -10,5 +10,232 @@
     <header>JavaScript:Novice to Ninja Ch. 13 Notes</header>
     <div id="notes9" class="notes">
         <p>
+           Ajax (Asynchronous JavaScript and XML) allows async communication w/server, dynamic update w/o reload 
+            allows JS to request resources from server on behalf of client (usually JSON data or fragments of txt/HTMl)
+            Need server-side lang (PHP, Ruby, Node.js or .NET) to serve data response post request 
+            Same-Origin Policy: blocks all reqs from diff domain from page making req - enforced by all mod browsers to stop malicious JS being run from external source 
+            sed APIs of many site rely on data transferred across domains
+            Cross-Origin Resource Sharing (CORS) solution allowing resources to be req'd from outside origin domain, works by using HTTP headers to control which domains can receive data 
+            most mod browsers suppt and respect restrictions in the headers 
+            (XML used at first, JSON more light and easier to parse, also natively suppt'd in JS so dealing w/JS objs not parsing XML w/DOM)
+        </p>
+        <p>
+            unusual not to use Ajax when partial pg update needed 
+            esp w/greater use of public APIs
+            (API: application programming interface: collection of methods allows external access to other program/service, allows controlled access to site data, devs able to interact w/data/create mashups of 3rd party services, info returned often serialized as JSON, CORS enabled to access API info, some services also req authentication)
+            XMLHttpRequest obj standardized by WHATWG et W3C w/HTML5 specs 
+            superseded by Fetch API, living standard for req/send data async across network
+            uses promises to avoid callback hell, streamlines concepts that had become cumbersome 
+        </p>
+        <p>
+            Fetch API - global fetch() method w/single mandatory arg (url of resource fetching) 
+            fetch('https://example.com/data')
+            .then(//code handling response)
+            .catch(//code if server returns error)<br>
+            returns promise that resolves to response returned from URL provided as arg
+            promise resolved when response received from url 
+            b/c promise, use catch for any errors
+            Response interface intro'd by Fetch API - deals w/obj returned when promise fulfilled
+            <ul>response objs have props et methods to allow us to process response effectively
+            <li>ok prop - checks if response success, based on HTTP status code (accessed using status prop), 200 if success, 201 if resource created, 204 if sucess sed no content returned, returns true if b/t 200-299
+            need to manually check b/c promise only rejected in case of 404 (sed still considered success to promise)
+            const url = 'https:example.com/data';
+            fetch(url)
+            .then((response) => {
+                if(response.ok {
+                    return response;
+                }
+                throw Error(response.statusText);
+            })
+            .then(response=> //do something w/response)
+            .catch(error=> console.log('There was an error!'))
+            error thrown refers to statusText prop of response obj, specifies status msg corresponding to code returned </li>
+            <li>  headers - Headers obj containing any headers assoc. w/response </li>
+            <li>url - string containing url of response </li>
+            <li> redirected - bool specifying if response result of redirect </li>
+           <li>
+               <ul>
+                type - string val of 
+                <li>'basic' - response from same domain</li>
+                <li>'cors' - data received from valid cross-origin req from diff domain </li>
+                <li>'error' - network error occurs</li>
+                <li>  'opaque' - response received from 'no-cors' req from another domain (access to data severely restricted) </li>
+                </ul>
+           </li>
+           <li>
+               redirect() - used to redirect to other url, creates new promise resolving response from redirected url 
+               fetch(url)
+               .then(response => response.redirect(newURL)); //redirects
+               .then(//do something else)
+               .catch(error => console.log('There was an error: ', error))
+               no current browser suppt for redirect()
+           </li>
+           <li>
+               text() - takes stream of response text, reads to completion, returns promise that resolves to USVSting obj treated as string in JS 
+               fetch(url)
+               .then(response => response.text()); //transforms text stream into JS str
+               .then(text => console.log(text))
+               .catch(error => console.log('There was an error: ', error))
+               once promise resolved, use string() to return promise that resolves w/str rep of text returned 
+           </li>
+           <li>
+               blob() - used to read file of raw data (image/spreadsheet), once whole file read, returns promise that resolves w/blob obj 
+               fetch(url)
+               .then(response => response.blog() );
+               .then(blob => blob.type))
+               .catch(error => console.log('There was an error: ', error))
+               use type prop to log MIME-type to log what type of file received
+           </li>
+           <li>
+               JSON most common format
+               json() method used to transform stream of JSON data into promise resolving to a JS obj 
+               fetch(url) 
+               .then(response => response.json());
+               .then(data => console.log(Object.entries(data)))
+               .catch(error => console.log('There was an error: ', error))
+               resolved as JS obj so can manip obj using JS
+               Object.entries() used to view key/val pairs in returned obj 
+           </li>
+        </ul>
+        </p>
+        <p>
+            can create own response obj using constructor function 
+            const response = new Response('Hello!', {
+                ok: true, status: 200, statusText: 'OK', type: 'cors', url: '/api'
+            });
+            1st arg is data to be returned, 2nd arg obj used to provide vals for any of props listed
+            can be useful to use if creating API that needs to send a response or need to send a dummy response for testing 
+        </p>
+        <p>
+            Request obj as arg gives more control over req, allows options to be set de req 
+            create using Request() constructor w/props: 
+            <ul>
+                <li>
+                    url - url of requested resource, only prop req'd 
+                </li>
+                <li>
+                    method - str specifying which HTTP method used for req, default GET 
+                </li>
+                <li>
+                    headers - Headers obj gives details of req's headers 
+                </li>
+                <li>
+                    mode - allows specify if CORS used or not, default yes 
+                </li>
+                <li>
+                    cache - allows specify how req uses browser's cache (like force req/update cache or force look in cache)
+                </li>
+                <li>
+                    credentials - specify if cookies allowed w/req 
+                </li>
+                <li>
+                    redirect - specifies what to do if redirect response: 'follow', 'error', 'manual' (user clicks link to follow redirect)
+                </li>
+            </ul>
+            constructor funct used to create new Request obj 
+            const request = new Request('https://example.com/data', {
+                method: 'GET', 
+                mode: 'cors', 
+                redirect: 'follow', 
+                cache: 'no-cache'
+            });
+            url prop 1st arg (required), 2nd arg obj made up of props
+            once Request obj assigned to var, can be used as param of fetch() method 
+            fetch.request)
+            .then(//do something w/response)
+            .catch(//handle errors)
+            OR
+            fetch('https://example.com/data', {
+                method: 'GET', 
+                mode: 'cors', 
+                redirect: 'follow', 
+                cache: 'no-cache'
+            })
+            .then(//do something w/response)
+            .catch(//handle errors)
+        </p>
+        <p>
+            Headers used to pass add'tl info de request/response including file-type of resource, cookie info, authentication info, et when resource last mod'd 
+            Fetch API intro'd Headers interface, use to create Headers obj which is added as prop of Request/Response objs
+            create new w/constructor funct 
+            const headers = new Headers();
+            also opt arg containing init header vals
+            const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })
+            <ul>Obj includes:
+                <li>has() - check of headers obj contains header provided as arg 
+                    headers.has('Content-Type');
+                </li> 
+                <li>get() - returns val of arg header
+                    headers.get('Content-Type');
+                </li>
+                <li>
+                    set() - set val of already existing header or create new header w/arg val if does not already exist 
+                    headers.set('Content-Type', 'application/json');
+                </li>
+                <li>
+                    append() - adds new header to headers obj 
+                    headers.append('Accept-Encoding', 'gzip,deflate');
+                </li>
+                <li>delete() - removes arg header 
+                    headers.delete('Accept-Encoding')
+                </li>
+                <li>keys(), values(), entries() - iterators to go over header k/v, entries (k/v pairs)
+                    for(const entry of headers.entries() {
+                        console.log(entry);
+                    }  
+                </li>
+            </ul>
+            use Headers, Request, Response obj to put together ex that sets up URL, Request, Headers before calling fetch()
+            const url = 'https:example.com/data';
+            const headers = new Headers({'Content-Type': 'text/plain', 'Accept-Charset': 'utf-8', 'Accept-Encoding': 'gzip, deflate'})
+            const request = (url, {headers: headers})
+            fetch(request)
+            .then(function(response) {
+                if(response.ok){
+                    return response;
+                }
+                throw Error(response.statusText);
+            })
+            .then(response=> //do something w/response)
+            .catch(error => console.log('There was an error!'))
+        </p>
+        <p>
+            HTTP verbs/methods tell what type of req, then determines how server deals w/req 
+            <ul>
+                <li>GET - retrieve</li>
+                <li>POST - request used to create resource or do task</li>
+                <li>PUT requests to upsert (insert resource/update entirely)</li>
+                <li>PATCH - requests partial update to resource</li>
+                <li>DELETE - requests to dele resource</li>
+            </ul>
+            default: GET, forms also default GET sed often use POST request
+        </p>
+        <p>
+            common to use spinners/egg timers to indicate site waiting
+            Ajax Load/Preloaders.net good sources for creating spinner graphic 
+        </p>
+        <p>most forms have action attrib    specifying URL to use if form sent w/o Ajax, also method attrib to specify HTTP verb
+            avail as props of form obj: 
+            const request = new Request(form.action, {method: form.method, header: headers, body: data})
+        </p>
+        <p>Fetch API includes FormData interface, easier to submit form info using Ajax
+            FormData instance: const data = new FormData();
+            if form passed to this constructor funct as arg, form data instance serialize all data automatically, ready to be sent using Ajax 
+            also add data to form data instance as k/v pairs using append() 
+            data = new FormData(); //no form provided creates empty formdata instance
+            data.append('height', 75);
+            when form contains files to upload, used to require flash or plugin
+            FormData instance auto create necesse settings and upload files if present in form 
+        </p>
+        <p>Living standard means specs dev'd in the wild 
+            still subject to change through dev/vend/user feedback
+            sed once implemented in browser engines, relatively stable 
+            all browse sed IE support sed check level of suppt 1st 
+            can also use library for Ajax requests - takes care of implement details behind scenes using most up-to-date methods if suppt'd and fallback on older methods if req'd 
+            jQuery library good option - generic ajax method used like fetch() 
+            $.ajax('http://numbserapi.com/random')
+            .done(text=>outputDiv.innerHTML = text);
+        </p>
+    </div>
 </body>
 </html>
