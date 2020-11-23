@@ -64,7 +64,7 @@ function validateInline() {
         error.style.display = 'name';
     }
 }
-form2.heroName.addEventListener('keyup', disableSubmit, false);
+/* form2.heroName.addEventListener('keyup', disableSubmit, false);
 function disableSubmit(event) {
     if(event.target.value === ''){
         document.getElementsById("submit").disabled = true;
@@ -72,4 +72,4 @@ function disableSubmit(event) {
     else {
         document.getElementsById("submit").disabled = false;
     }
-}
+} */
