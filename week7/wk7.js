@@ -37,10 +37,12 @@ const form = document.forms['todo'];
 form.addEventListener('submit', addTask, false);
 function addTask(event) {
     event.preventDefault();
+
     const task = new FormData(form);
-    const url = `https://echo.jsontest.com/id/1/title/${form.task.value}`;
+    const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`;
     const headers = new Headers({
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
     });
     const request = new Request(url, {
         method: 'POST', 
@@ -63,6 +65,6 @@ function addTask(event) {
     }) */
     fetch(request)
     .then(response => response.json())
-    .then(task => console.log(`${data.title} saved with an id of ${data.id}`))
+    .then(data => console.log(`${data.title} saved with an id of ${data.id}`))
     .catch( error => console.log('There was an error: ', error))
 }
