@@ -1,10 +1,11 @@
-const input = document.forms['searchInput'];
+const form1 = document.getElementById("search");
+const input = form1["searchInput"];
 input.value = 'Search Here';
 input.addEventListener('focus', () => alert('focused'), false);
 input.addEventListener('blur', () => alert('blurred'), false);
 input.addEventListener('change', () => alert('changed'), false);
-const form1 = document.forms['search'];
-form1.addEventListener('submit', search, false);
+const formBtn = form1["search"];
+formBtn.addEventListener('submit', search, false);
 function search(event) {
     event.preventDefault();
     alert(`You Searched for : ${input.value}`);
@@ -21,7 +22,7 @@ input.addEventListener('blur', function() {
     }
 }, false);
 
-const form2 = document.forms['hero'];
+const form2 = document.getElementById("hero");
 form2.addEventListener('submit', makeHero, false);
 function makeHero(event) {
     event.preventDefault();
