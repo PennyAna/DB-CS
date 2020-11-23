@@ -1,4 +1,4 @@
-const input = forms.elements.searchInput;
+const input = form.elements.searchInput;
 input.value = 'Search Here';
 input.addEventListener('focus', () => alert('focused'), false);
 input.addEventListener('blur', () => alert('blurred'), false);
