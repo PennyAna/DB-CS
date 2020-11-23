@@ -6,9 +6,9 @@ input.addEventListener('blur', () => alert('blurred'), false);
 input.addEventListener('change', () => alert('changed'), false);
 const formBtn = form1["searchBtn"];
 formBtn.addEventListener('submit', search, false);
-function search(event) {
+function search(formBtn) {
     alert(`You Searched for : ${input.value}`);
-    event.preventDefault();
+    formBtn.preventDefault();
 
 }
 input.addEventListener('focus', function(){
