@@ -67,9 +67,9 @@ function validateInline() {
 form2.heroName.addEventListener('keyup', disableSubmit, false);
 function disableSubmit(event) {
     if(event.target.value === ''){
-        document.getElementsById('submit').disabled = true;
+        document.getElementsById("submit").disabled = true;
     }
     else {
-        document.getElementsById('submit').disabled = false;
+        document.getElementsById("submit").disabled = false;
     }
 }
