@@ -6,8 +6,9 @@ input.addEventListener('change', () => alert('changed'), false);
 const form = document.form['search'];
 form.addEventListener('submit', search, false);
 function search(event) {
-    alert(`You Searched for : ${input.value}`);
     event.preventDefault();
+    alert(`You Searched for : ${input.value}`);
+
 }
 input.addEventListener('focus', function(){
     if(input.value==='Search Here') {
@@ -19,6 +20,7 @@ input.addEventListener('blur', function() {
         input.value = 'Search Here';
     }
 }, false);
+
 const form = document.forms['hero'];
 form.addEventListener('submit', makeHero, false);
 function makeHero(event) {
