@@ -2,7 +2,7 @@ const textButton = document.getElementById('number');
 const apiButton = document.getElementById('chuck');
 const outputDiv = document.getElementById('output');
 
-const textURL = 'http://numbersapi.com/random';
+const textURL = 'https://numbersapi.com/random';
 const apiURL = 'https://api.chucknorris.io/jokes/random';
 
 textButton.addEventListener('click', () => {
@@ -38,7 +38,7 @@ form.addEventListener('submit', addTask, false);
 function addTask(event) {
     event.preventDefault();
     const task = new FormData(form);
-    const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`;
+    const url = `https://echo.jsontest.com/id/1/title/${form.task.value}`;
     const headers = new Headers({
         'Accept': 'application/json'
     });
