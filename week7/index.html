@@ -19,8 +19,18 @@
         <h2>JavaScript: Novice to Ninja
             Chapter 13: Ajax</h2>
         <h3><a href="./ch13notes.html">Notes</a></h3>
-        <h3><a href="./exampleAjax.html">Ajax Fetch Example</a> </h3> 
-        <h3><a href="./exampleTD.html">Ajax Send Example</a></h3>
+        <h3>Ajax Fetch Example</h3> 
+        <button id='number'>Number Fact</button>
+        <button id='chuck'>Chuck Norris Fact</button>
+        <div id='output'>
+            Ajax response will appear here
+        </div>
+        
+        <h3>Ajax Send Example</h3>
+        <form id='todo' action='https://jsonplaceholder.typicode.com/todos' method='POST'>
+            <input type='text' name='task'  placeholder='Add Task' autofocus required>
+            <button type='submit'>Add Task</button>
     </div>
+    <script src='wk7.js'></script>
 </body>
 </html>
